@@ -71,8 +71,8 @@
   .note-img:hover{transform:rotate(90deg) scale(1.03);}
 
   .slide-img{max-width:min(72vw,240px);max-height:min(42vh,320px);border-radius:16px;
-    box-shadow:0 12px 30px rgba(224,49,111,.25);display:block;margin:0 auto;cursor:zoom-in;transition:transform .2s ease;}
-  .slide-img:hover{transform:scale(1.03);}
+    box-shadow:0 12px 30px rgba(224,49,111,.25);display:block;transform:rotate(90deg);margin:44px auto;cursor:zoom-in;transition:transform .2s ease;}
+  .slide-img:hover{transform:rotate(90deg) scale(1.03);}
 
   /* fullscreen lightbox */
   .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);
@@ -177,7 +177,7 @@
   <!-- 1 HERO -->
   <section class="slide active">
     <div class="card">
-      <span class="emoji-big">🙈</span>
+      <span class="emoji-big">🐵</span>
       <h1>Dear Nandu,</h1>
       <p>Yes, Raj Nandani Maurya... I saw it.</p>
       <p>And then I did the unforgivable —<br>I left <b>you</b> on seen. 😳</p>
@@ -220,7 +220,7 @@
       <h2>About That Smile</h2>
       <p class="big-line">Genuinely a great smile.</p>
       <p>Especially when you say "PUFc" and air goes <i>whoosh</i> through that little gap 😌 — still my favourite bug in the system.</p>
-      <img src="smile.jpeg" alt="That smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',false)"
+      <img src="smile.jpeg" alt="That smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',true)"
         onerror="this.style.display='none';" />
       <p>(Also... still sorry about dropping you off the bike. 🏍️😅 My bad, forever.)</p>
       <button class="btn" onclick="next()">Chalo aage badho 👀</button>
@@ -251,7 +251,6 @@
         <li>💼 Show up for you properly — every single time</li>
         <li>😄 Protect that PUFc smile like it's company property</li>
       </ul>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
       <button class="btn ghost" onclick="next()">One last thing →</button>
     </div>
   </section>

@@ -177,7 +177,7 @@
   <!-- 1 HERO -->
   <section class="slide active">
     <div class="card">
-      <span class="emoji-big">🐧</span>
+      <span class="emoji-big">🙈</span>
       <h1>Dear Nandu,</h1>
       <p>Yes, Raj Nandani Maurya... I saw it.</p>
       <p>And then I did the unforgivable —<br>I left <b>you</b> on seen. 😳</p>
@@ -443,7 +443,7 @@
 
 <script>
   // floating hearts
-  const emojis=['❤️','💕','😘','🌹','💖','💗'];
+  const emojis=['❤️','💕','💖','💗'];
   const hc=document.getElementById('hearts');
   for(let i=0;i<16;i++){
     const s=document.createElement('span');
@@ -485,16 +485,33 @@
     x0=null;
   });
 
-  // music — play automatically (browsers may need one tap; we cover that too)
+  // music — play automatically (browsers block autoplay-with-sound until a
+  // gesture, so we try immediately AND on the very first interaction of any kind)
   const song=document.getElementById('song');
-  song.volume=0.3;
-  song.play().catch(()=>{});
-  ['click','touchstart','keydown'].forEach(ev=>
-    document.addEventListener(ev,()=>{if(!userPaused)song.play().catch(()=>{});},{once:true}));
-
-  // music toggle button (top-right)
   const musicBtn=document.getElementById('musicBtn');
   let userPaused=false;
+  song.volume=0.3;
+
+  function tryPlay(){
+    if(userPaused)return;
+    song.play().then(()=>{
+      musicBtn.textContent='🎶';musicBtn.classList.add('playing');
+      // once it's really playing, stop listening for gestures
+      unlockEvents.forEach(ev=>document.removeEventListener(ev,tryPlay));
+    }).catch(()=>{});
+  }
+
+  // fire on ANY of these — first one to succeed wins
+  const unlockEvents=['pointerdown','click','touchstart','keydown','scroll','mousemove'];
+  unlockEvents.forEach(ev=>document.addEventListener(ev,tryPlay,{passive:true}));
+
+  // attempt straight away (works if the browser allows it) + once fully loaded
+  tryPlay();
+  window.addEventListener('load',tryPlay);
+  // resume if the tab is re-focused
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay();});
+
+  // music toggle button (top-right)
   function toggleMusic(){
     if(song.paused){song.play().catch(()=>{});userPaused=false;musicBtn.textContent='🎶';musicBtn.classList.add('playing');}
     else{song.pause();userPaused=true;musicBtn.textContent='🔇';musicBtn.classList.remove('playing');}

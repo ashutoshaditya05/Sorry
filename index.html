@@ -2,447 +2,104 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Sorry Miss Jsaun 🙈 (PUFc... 💨)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sorry Nandu 💗 (choose your apology)</title>
 <style>
   :root{
     --pink:#ff4d8d;--pink-dark:#e0316f;--deep:#7a1f45;
-    --bg1:#ffe0ec;--bg2:#ffd0e4;--bg3:#ffe9f2;--card:#ffffff;
+    --bg1:#ffe0ec;--bg2:#ffd0e4;--bg3:#ffe9f2;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-  html,body{height:100%;overflow:hidden;}
   body{
+    min-height:100vh;
     font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;
     color:var(--deep);
     background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
     background-size:300% 300%;animation:bgmove 16s ease infinite;
-    line-height:1.55;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    padding:48px 20px;line-height:1.55;
   }
   @keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
 
-  /* floating hearts */
-  /* scrolling lyric bar */
-  .lyric-bar{position:fixed;top:0;left:0;right:0;z-index:45;height:32px;overflow:hidden;
-    background:rgba(224,49,111,.9);color:#fff;display:flex;align-items:center;white-space:nowrap;
-    font-size:13px;font-weight:600;letter-spacing:.3px;box-shadow:0 2px 10px rgba(224,49,111,.35);}
-  .lyric-bar span{display:inline-block;padding-left:100%;animation:marquee 16s linear infinite;}
-  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-100%)}}
-
   .hearts{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;}
-  .hearts span{position:absolute;bottom:-40px;animation:rise linear infinite;opacity:.7;}
-  @keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.8}100%{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+  .hearts span{position:absolute;bottom:-40px;animation:rise linear infinite;opacity:.6;}
+  @keyframes rise{0%{transform:translateY(0) rotate(0);opacity:0}10%{opacity:.7}100%{transform:translateY(-112vh) rotate(360deg);opacity:0}}
 
-  /* slide deck */
-  .deck{position:relative;width:100%;height:100%;z-index:2;}
-  .slide{
-    position:absolute;inset:0;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:40px clamp(20px,6vw,60px) 100px;
-    opacity:0;visibility:hidden;transform:translateY(40px) scale(.98);
-    transition:opacity .55s ease, transform .55s ease, visibility .55s;
-    overflow-y:auto;
+  header{text-align:center;z-index:2;margin-bottom:28px;max-width:620px;}
+  .emoji-big{font-size:clamp(46px,12vw,76px);display:block;animation:beat 2.4s ease-in-out infinite;}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+  h1{font-size:clamp(26px,7vw,44px);color:var(--pink-dark);line-height:1.15;margin:8px 0 10px;}
+  header p{font-size:clamp(14px,3.4vw,18px);}
+  .sub{color:var(--pink);font-weight:700;margin-top:6px;}
+
+  .cards{z-index:2;display:flex;gap:20px;flex-wrap:wrap;justify-content:center;width:100%;max-width:820px;}
+  .opt{
+    flex:1 1 300px;max-width:380px;text-align:left;
+    background:#fff;border-radius:24px;padding:26px;
+    box-shadow:0 20px 50px rgba(224,49,111,.2);
+    border:2px solid transparent;text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;gap:8px;
+    transition:transform .18s ease, box-shadow .18s ease, border-color .18s;
+    animation:cardIn .6s ease both;
   }
-  .slide.active{opacity:1;visibility:visible;transform:translateY(0) scale(1);}
-  .card{
-    background:var(--card);border-radius:26px;
-    padding:clamp(24px,5vw,44px);
-    box-shadow:0 24px 60px rgba(224,49,111,.22);
-    max-width:640px;width:100%;
-    animation:none;
-  }
-  .slide.active .card{animation:pop-in .6s ease;}
-  @keyframes pop-in{from{transform:translateY(20px);opacity:.4}to{transform:translateY(0);opacity:1}}
+  .opt:nth-child(2){animation-delay:.12s;}
+  @keyframes cardIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+  .opt:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 28px 60px rgba(224,49,111,.35);border-color:var(--pink);}
+  .opt:active{transform:scale(.98);}
 
-  .emoji-big{font-size:clamp(52px,15vw,96px);display:block;margin-bottom:8px;animation:beat 2.2s ease-in-out infinite;}
-  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+  .tag{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--pink);background:#ffeaf2;padding:5px 11px;border-radius:20px;align-self:flex-start;}
+  .opt.new .tag{color:#fff;background:linear-gradient(135deg,var(--pink),var(--pink-dark));}
+  .opt .ic{font-size:38px;line-height:1;}
+  .opt h2{font-size:clamp(19px,4.6vw,24px);color:var(--pink-dark);line-height:1.25;}
+  .opt p{font-size:15px;opacity:.85;}
+  .opt .crime{font-size:13px;font-style:italic;color:var(--pink);padding-top:8px;border-top:1px dashed #ffd0e0;margin-top:4px;}
+  .go{margin-top:10px;font-weight:800;color:var(--pink-dark);font-size:15px;}
+  .opt:hover .go::after{content:' →';}
 
-  h1{font-size:clamp(30px,8vw,54px);color:var(--pink-dark);line-height:1.12;margin-bottom:14px;}
-  h2{font-size:clamp(22px,5.5vw,34px);color:var(--pink-dark);margin-bottom:14px;}
-  p{font-size:clamp(15px,3.4vw,20px);margin-bottom:12px;}
-  .sub{color:var(--pink);font-weight:600;}
-  .big-line{font-size:clamp(24px,6vw,40px);color:var(--pink-dark);font-weight:800;margin:6px 0 12px;}
-
-  ul{list-style:none;text-align:left;display:inline-block;margin:6px auto;}
-  ul li{font-size:clamp(15px,3.4vw,19px);padding:8px 0;border-bottom:1px dashed #ffd0e0;}
-  ul li:last-child{border-bottom:none;}
-
-  .note-img{max-width:min(80vw,360px);max-height:min(46vh,360px);border-radius:16px;box-shadow:0 12px 30px rgba(224,49,111,.25);
-    display:block;transform:rotate(90deg);margin:34px auto;cursor:zoom-in;transition:transform .2s ease;}
-  .note-img:hover{transform:rotate(90deg) scale(1.03);}
-
-  .slide-img{max-width:min(72vw,240px);max-height:min(42vh,320px);border-radius:16px;
-    box-shadow:0 12px 30px rgba(224,49,111,.25);display:block;transform:rotate(90deg);margin:44px auto;cursor:zoom-in;transition:transform .2s ease;}
-  .slide-img:hover{transform:rotate(90deg) scale(1.03);}
-
-  /* fullscreen lightbox */
-  .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.92);
-    display:none;align-items:center;justify-content:center;padding:20px;}
-  .lightbox.show{display:flex;animation:fade .3s ease;}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  .lightbox img{max-width:92vw;max-height:92vh;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6);}
-  .lightbox img.rot{max-width:92vh;max-height:92vw;transform:rotate(90deg);}
-  .lightbox .close{position:fixed;top:16px;right:16px;z-index:101;
-    width:50px;height:50px;border-radius:50%;border:none;background:#fff;color:#000;
-    font-size:26px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.4);}
-
-  .btn{
-    position:relative;overflow:hidden;
-    display:inline-block;background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-    color:#fff;border:none;font-size:clamp(15px,3.6vw,18px);font-weight:700;
-    padding:14px 26px;border-radius:50px;cursor:pointer;margin:8px 5px 0;
-    box-shadow:0 10px 24px rgba(224,49,111,.35);
-    transition:transform .15s ease, box-shadow .15s ease;-webkit-appearance:none;
-  }
-  .btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 32px rgba(224,49,111,.5);}
-  .btn:active{transform:scale(.92);}
-  .btn.ghost{background:#fff;color:var(--pink-dark);border:2px solid var(--pink);box-shadow:none;}
-  .btn.pop{animation:btnpop .4s ease;}
-  @keyframes btnpop{0%{transform:scale(.92)}45%{transform:scale(1.08)}100%{transform:scale(1)}}
-  .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.55);
-    transform:scale(0);animation:ripple .6s ease-out;pointer-events:none;}
-  @keyframes ripple{to{transform:scale(4);opacity:0}}
-
-  /* staggered card entrance on every tab change */
-  .slide.active .card > :not(.emoji-big){animation:childIn .5s ease both;}
-  .slide.active .card > :nth-child(2){animation-delay:.06s}
-  .slide.active .card > :nth-child(3){animation-delay:.14s}
-  .slide.active .card > :nth-child(4){animation-delay:.22s}
-  .slide.active .card > :nth-child(5){animation-delay:.30s}
-  .slide.active .card > :nth-child(6){animation-delay:.38s}
-  .slide.active .card > :nth-child(7){animation-delay:.46s}
-  .slide.active .card > :nth-child(8){animation-delay:.54s}
-  @keyframes childIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-  .slide.active .emoji-big{animation:beat 2.2s ease-in-out infinite, emojiIn .6s ease both;}
-  @keyframes emojiIn{from{opacity:0;transform:scale(.3) rotate(-20deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-
-  /* nav controls */
-  .nav{position:fixed;bottom:0;left:0;right:0;z-index:30;
-    display:flex;align-items:center;justify-content:space-between;
-    padding:16px clamp(16px,5vw,40px);gap:12px;}
-  .nav-btn{
-    background:rgba(255,255,255,.85);color:var(--pink-dark);border:2px solid var(--pink);
-    width:54px;height:54px;border-radius:50%;font-size:22px;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 6px 16px rgba(224,49,111,.25);transition:transform .15s ease,opacity .3s;
-  }
-  .nav-btn:hover{transform:scale(1.1);}
-  .nav-btn:disabled{opacity:.3;cursor:not-allowed;transform:none;}
-  /* side arrows */
-  .side-btn{
-    position:fixed;bottom:22px;z-index:40;
-    width:54px;height:54px;border-radius:50%;
-    background:rgba(255,255,255,.85);color:var(--pink-dark);border:2px solid var(--pink);
-    font-size:28px;line-height:1;cursor:pointer;
-    display:flex;align-items:center;justify-content:center;
-    box-shadow:0 6px 16px rgba(224,49,111,.25);transition:transform .15s ease,opacity .3s;
-  }
-  .side-btn:hover{transform:scale(1.12);}
-  .side-btn.left{left:calc(50% - 62px);}
-  .side-btn.right{left:calc(50% + 8px);}
-  .side-btn.hide{opacity:0;pointer-events:none;}
-  @media (max-width:480px){.side-btn{width:46px;height:46px;font-size:24px;bottom:16px;}}
-  .dots{display:flex;gap:8px;flex:1;justify-content:center;flex-wrap:wrap;}
-  .dot{width:10px;height:10px;border-radius:50%;background:rgba(224,49,111,.3);transition:all .3s;}
-  .dot.active{background:var(--pink-dark);transform:scale(1.4);}
-
-  .hint{position:fixed;bottom:82px;left:0;right:0;z-index:29;text-align:center;
-    color:var(--pink-dark);font-size:13px;opacity:.7;pointer-events:none;animation:blink 2s ease-in-out infinite;}
-  @keyframes blink{0%,100%{opacity:.35}50%{opacity:.8}}
-
-  /* music button */
-  .music-btn{position:fixed;top:42px;right:14px;z-index:46;width:50px;height:50px;border-radius:50%;
-    border:none;cursor:pointer;font-size:22px;background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-    color:#fff;box-shadow:0 8px 20px rgba(224,49,111,.4);transition:transform .2s;}
-  .music-btn:hover{transform:scale(1.1);}
-  .music-btn.playing{animation:spin 4s linear infinite;}
-  @keyframes spin{to{transform:rotate(360deg);}}
+  footer{z-index:2;margin-top:30px;text-align:center;font-size:13px;opacity:.75;font-style:italic;max-width:520px;}
 
   .burst{position:fixed;z-index:50;pointer-events:none;font-size:22px;animation:burst .9s ease-out forwards;}
   @keyframes burst{0%{transform:translate(0,0) scale(.5);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.4);opacity:0}}
-  .confetti{position:fixed;top:-10px;z-index:60;pointer-events:none;animation:drop linear forwards;}
-  @keyframes drop{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
 </style>
 </head>
 <body>
 
-<div class="lyric-bar"><span>🎵 Every breath you take, every move you make... I'll be watching you 💗 — for Nandu 🎵</span></div>
-
 <div class="hearts" id="hearts"></div>
 
-<audio id="song" src="song.mp3" loop preload="auto" autoplay></audio>
-<button id="musicBtn" class="music-btn playing" onclick="toggleMusic()" title="Play / pause music">🎶</button>
+<header>
+  <span class="emoji-big">🙇‍♂️</span>
+  <h1>Dear Nandu,</h1>
+  <p>Ek aur galti. Ek aur website. 🙈</p>
+  <p class="sub">Purani waali ab bhi zinda hai — kaunsi maafi sunni hai, khud chuno. 👇</p>
+</header>
 
-<div class="deck" id="deck">
+<div class="cards">
 
-  <!-- 1 HERO -->
-  <section class="slide active">
-    <div class="card">
-      <span class="emoji-big">🐵</span>
-      <h1>Dear Nandu,</h1>
-      <p>Yes, Raj Nandani Maurya... I saw it.</p>
-      <p>And then I did the unforgivable —<br>I left <b>you</b> on seen. 😳</p>
-      <p class="sub">So I built you an entire website to say sorry.</p>
-      <button class="btn" onclick="next()">Acha acha, bol na →</button>
-    </div>
-  </section>
+  <a class="opt new" href="sorry-2.html">
+    <span class="tag">New · zero promises</span>
+    <span class="ic">😴</span>
+    <h2>The 14h 41m Sorry</h2>
+    <p>Tumne 8:29 pm pe pucha <i>"kha?"</i>. Phir 4:18 am pe <i>"ho kha ?"</i>. Maine reply kiya agle din <b>11:10 am</b> pe. 🫠</p>
+    <span class="crime">Crime: 5 messages ignore kiye, aur 14 ghante baad sabse pehle ₹670 ke refund ka jawab diya. 🤡</span>
+    <span class="go">Poora hisaab dekho</span>
+  </a>
 
-  <!-- 2 CONFESSION -->
-  <section class="slide">
-    <div class="card">
-      <h2>The Confession 🕵️</h2>
-      <p>Let's replay the crime scene:</p>
-      <ul>
-        <li>You texted. ✅</li>
-        <li>I read it. ✅</li>
-        <li>Got lost in PUFc dreams 💨 (gap-in-teeth, air-pass moment... <span style="color:var(--pink);font-weight:600;font-style:italic;">shhhh~ 💨😌</span>). ✅</li>
-        <li>Forgot to reply like a total <i>gabad guccha</i> person. ❌</li>
-      </ul>
-      <p><b>Verdict:</b> guilty. 100%. 🙋‍♂️</p>
-      <button class="btn" onclick="next()">Thik hai aage 👀</button>
-    </div>
-  </section>
-
-  <!-- 3 WHY YOU MATTER -->
-  <section class="slide">
-    <div class="card">
-      <h2>Why You Matter 💼</h2>
-      <p>I took your interview once... and honestly? You never left after that. Best hire I ever made. 😄</p>
-      <p>You're my partner in PUFc and my partner-in-crime otherwise. The person I actually <i>want</i> around every day.</p>
-      <p>Point is — you matter. A lot. Even when I'm being a <i>gabad guccha</i> about texting.</p>
-      <button class="btn" onclick="next()">Aur suno na 🥰</button>
-    </div>
-  </section>
-
-  <!-- 4 SMILE -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">😄</span>
-      <h2>About That Smile</h2>
-      <p class="big-line">Genuinely a great smile.</p>
-      <p>Especially when you say "PUFc" and air goes <i>whoosh</i> through that little gap 😌 — still my favourite bug in the system.</p>
-      <img src="smile.jpeg" alt="That smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',true)"
-        onerror="this.style.display='none';" />
-      <p>(Also... still sorry about dropping you off the bike. 🏍️😅 My bad, forever.)</p>
-      <button class="btn" onclick="next()">Chalo aage badho 👀</button>
-    </div>
-  </section>
-
-  <!-- 5 THE NOTE -->
-  <section class="slide">
-    <div class="card">
-      <h2>Remember This? 📝</h2>
-      <p>I even said it once. A promise is a promise —</p>
-      <img src="note.png" alt="My note to you" class="note-img" onclick="openLightbox(event,'note.png',true)"
-        onerror="this.style.display='none';document.getElementById('note-missing').style.display='block';" />
-      <p id="note-missing" style="display:none;color:var(--pink);font-style:italic;">(note image goes here 💌)</p>
-      <p>I said I wouldn't leave you hanging... and I meant it (mostly 😅).</p>
-      <button class="btn" onclick="next()">Ab main promise karu 🤞</button>
-    </div>
-  </section>
-
-  <!-- 6 PROMISE -->
-  <section class="slide">
-    <div class="card">
-      <h2>The Promise 🤞</h2>
-      <ul>
-        <li>⚡ Reply before the second blue tick even shows up</li>
-        <li>🚫 No more <i>gabad guccha</i> excuses — ever</li>
-        <li>🏍️ Hold on tighter on the bike... and off it too</li>
-        <li>💼 Show up for you properly — every single time</li>
-        <li>😄 Protect that PUFc smile like it's company property</li>
-      </ul>
-      <button class="btn ghost" onclick="next()">One last thing →</button>
-    </div>
-  </section>
-
-  <!-- 7 ASK -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🥺</span>
-      <h2>So... am I forgiven, Miss Jsaun?</h2>
-      <button class="btn" onclick="showResult('yes')">Theek hai, forgiven 😊</button>
-      <button class="btn ghost" onclick="showResult('more')">Aur manao 😤</button>
-    </div>
-  </section>
-
-  <!-- 8 YES RESULT -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🎉</span>
-      <h2>You just made my whole day! 🥳💗</h2>
-      <p>Ab koi aur promise nahi 😜 exclusive waala toh bas bahana tha... kaisa laga mera mazak? 🤭💨</p>
-      <p>Thanks for forgiving me, Nandu. Now go do that PUFc smile 💨😄</p>
-      <p class="sub">— Won't leave you on seen again (probably) 😌❤️</p>
-    </div>
-  </section>
-
-  <!-- MANAO 1 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🚀</span>
-      <h2>Manao mode: ON</h2>
-      <p>Deploying maximum charm and a whole list of promises. Buckle up, Nandu 😌</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Lights, camera, manao 🎬</button>
-    </div>
-  </section>
-
-  <!-- MANAO 2 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🥟</span>
-      <h2>Promise #1</h2>
-      <p>Butter momos whenever you want — my treat, no questions asked, forever. 🧈</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Ek aur plate? 🥟</button>
-    </div>
-  </section>
-
-  <!-- MANAO ICE CREAM -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🍦</span>
-      <h2>Promise #2</h2>
-      <p>A ₹10 Amul ice cream every single day — or whenever you want one. Guaranteed. 🤝</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Thanda thanda, aur? 🍦</button>
-    </div>
-  </section>
-
-  <!-- MANAO 3 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🌅</span>
-      <h2>Promise #3</h2>
-      <p>A "sorry" every morning AND every evening — consider it my daily medicine. 💊😌</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Agli dose dekho 💊</button>
-    </div>
-  </section>
-
-  <!-- MANAO 4 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">💼</span>
-      <h2>Promise #4</h2>
-      <p>An extra 10% of my shares in PUFc — fully yours. No more excuses. Done. ✍️📈</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Deal aur sweeten karu? 🤑</button>
-    </div>
-  </section>
-
-  <!-- MANAO 5 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">⚡</span>
-      <h2>Promise #5</h2>
-      <p>Replies in 0.2 seconds flat — you'll never stare at a lonely "seen" again. 💬</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Fast? Aur fast dekho ⚡</button>
-    </div>
-  </section>
-
-  <!-- MANAO 6 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🌶️</span>
-      <h2>Promise #6</h2>
-      <p>Unlimited imli goli, chatpata, and all the teekha spicy food you love — always stocked. 🥵😋</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Teekha aur baaki hai 🌶️</button>
-    </div>
-  </section>
-
-  <!-- MANAO 7 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🏍️</span>
-      <h2>Promise #7</h2>
-      <p>Bike rides wherever and whenever you want — I'll drive slow and hold on tighter this time. 🐢🤞</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Agla stop dekho 🏍️</button>
-    </div>
-  </section>
-
-  <!-- MANAO 8 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">👑</span>
-      <h2>Promise #8</h2>
-      <p>You win every argument from now on — I've already officially surrendered. 🏳️😄</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Main haar gaya, aage 🏳️</button>
-    </div>
-  </section>
-
-  <!-- MANAO 9 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🥤</span>
-      <h2>Promise #9</h2>
-      <p>That famous lassi from Munsipulia — delivered to you whenever you ask. 😋</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Ek ghoont aur 🥤</button>
-    </div>
-  </section>
-
-  <!-- MANAO SMILE -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">😄</span>
-      <h2>Promise #10</h2>
-      <p>That PUFc smile 💨 — protected like top-secret company IP. Highest priority. 🔒</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Do aur bade waale 👀</button>
-    </div>
-  </section>
-
-  <!-- MANAO HARAMKHOOR -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">😤</span>
-      <h2>Promise #11</h2>
-      <p>Full permission granted: you can call me <b>HARAMKHOOR</b> whenever you like — for the rest of my life. 😌🎫</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Sabse bada promise dekho 🤝</button>
-    </div>
-  </section>
-
-  <!-- MANAO BET -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🎲</span>
-      <h2>Promise #12 — the big one 🤝</h2>
-      <p>You know how much bets mean to me. So here's the most sacrificial one: from now on, if <i>I</i> win — nothing. If <i>you</i> win — the bet's on me. Every single time. 🏆</p>
-      <button class="btn" onclick="showResult('yes')">Apology accepted 😊</button>
-      <button class="btn ghost" onclick="next()">Bas ek aakhri baat 🥹</button>
-    </div>
-  </section>
-
-  <!-- MANAO FINAL -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">😏</span>
-      <h2>Ab jyada bhav na khao, Miss JSAUN 😌</h2>
-      <p>Aur bhi bohot saare <b>exclusive</b> promises bache hue hain... par pehle apology accept karo, tabhi show honge. 😉🔒</p>
-      <button class="btn" onclick="showResult('yes')">Theek hai, accept kiya 😊🥰🎉💗✨🙏💐</button>
-      <button class="btn ghost" onclick="go(6)">Phir se poochho 🔁</button>
-    </div>
-  </section>
+  <a class="opt" href="sorry-1.html">
+    <span class="tag">The original</span>
+    <span class="ic">🐵</span>
+    <h2>The Left-On-Seen Sorry</h2>
+    <p>Wo pehli waali. PUFc 💨, butter momos, HARAMKHOOR licence, aur 12 promises. Untouched, jaisi thi waisi hi.</p>
+    <span class="crime">Crime: seen kiya, reply nahi kiya. Classic gabad guccha. 👀</span>
+    <span class="go">Phir se dekho</span>
+  </a>
 
 </div>
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-  <button class="close" onclick="closeLightbox(event)">✕</button>
-  <img id="lbImg" src="" alt="preview" />
-</div>
-
-<button class="side-btn left" id="prevBtn" onclick="prev()">‹</button>
-<button class="side-btn right" id="nextBtn" onclick="next()">›</button>
+<footer>Dono padho. Dono sach hain. Dono ke liye sorry hoon. 🥹💗</footer>
 
 <script>
-  // floating hearts
-  const emojis=['❤️','💕','💖','💗'];
+  const emojis=['❤️','💕','💖','💗','💤'];
   const hc=document.getElementById('hearts');
   for(let i=0;i<16;i++){
     const s=document.createElement('span');
@@ -453,84 +110,6 @@
     s.style.animationDelay=(Math.random()*10)+'s';
     hc.appendChild(s);
   }
-
-  // slide engine
-  const slides=[...document.querySelectorAll('.slide')];
-  let cur=0;
-
-  const prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
-  function render(){
-    slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
-    prevBtn.classList.toggle('hide',cur===0);
-    nextBtn.classList.toggle('hide',cur===slides.length-1);
-  }
-  function go(i){cur=Math.max(0,Math.min(slides.length-1,i));render();}
-  function next(){if(cur<slides.length-1){cur++;render();}}
-  function prev(){if(cur>0){cur--;render();}}
-
-  // keyboard
-  document.addEventListener('keydown',e=>{
-    if(e.key==='ArrowRight'||e.key===' ')next();
-    if(e.key==='ArrowLeft')prev();
-  });
-
-  // swipe
-  let x0=null;
-  document.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
-  document.addEventListener('touchend',e=>{
-    if(x0===null)return;
-    const dx=e.changedTouches[0].clientX-x0;
-    if(dx<-50)next();else if(dx>50)prev();
-    x0=null;
-  });
-
-  // music — play automatically (browsers block autoplay-with-sound until a
-  // gesture, so we try immediately AND on the very first interaction of any kind)
-  const song=document.getElementById('song');
-  const musicBtn=document.getElementById('musicBtn');
-  let userPaused=false;
-  song.volume=0.3;
-
-  function tryPlay(){
-    if(userPaused)return;
-    song.play().then(()=>{
-      musicBtn.textContent='🎶';musicBtn.classList.add('playing');
-      // once it's really playing, stop listening for gestures
-      unlockEvents.forEach(ev=>document.removeEventListener(ev,tryPlay));
-    }).catch(()=>{});
-  }
-
-  // fire on ANY of these — first one to succeed wins
-  const unlockEvents=['pointerdown','click','touchstart','keydown','scroll','mousemove'];
-  unlockEvents.forEach(ev=>document.addEventListener(ev,tryPlay,{passive:true}));
-
-  // attempt straight away (works if the browser allows it) + once fully loaded
-  tryPlay();
-  window.addEventListener('load',tryPlay);
-  // resume if the tab is re-focused
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay();});
-
-  // music toggle button (top-right)
-  function toggleMusic(){
-    if(song.paused){song.play().catch(()=>{});userPaused=false;musicBtn.textContent='🎶';musicBtn.classList.add('playing');}
-    else{song.pause();userPaused=true;musicBtn.textContent='🔇';musicBtn.classList.remove('playing');}
-  }
-
-  // button ripple + pop effect
-  document.addEventListener('click',e=>{
-    const b=e.target.closest('.btn');
-    if(!b)return;
-    const r=document.createElement('span');r.className='ripple';
-    const rect=b.getBoundingClientRect();
-    const size=Math.max(rect.width,rect.height);
-    r.style.width=r.style.height=size+'px';
-    r.style.left=(e.clientX-rect.left-size/2)+'px';
-    r.style.top=(e.clientY-rect.top-size/2)+'px';
-    b.appendChild(r);setTimeout(()=>r.remove(),600);
-    b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
-  });
-
-  // tap heart burst
   document.addEventListener('click',e=>{
     const set=['❤️','💕','😘','💖','🌹'];
     for(let i=0;i<5;i++){
@@ -542,33 +121,6 @@
       document.body.appendChild(b);setTimeout(()=>b.remove(),900);
     }
   });
-
-  // confetti
-  function confetti(){
-    const set=['🎉','❤️','💖','🌹','😘','✨','💕'];
-    for(let i=0;i<70;i++){
-      const c=document.createElement('div');c.className='confetti';
-      c.textContent=set[Math.floor(Math.random()*set.length)];
-      c.style.left=Math.random()*100+'vw';
-      c.style.animationDuration=(2.5+Math.random()*2.5)+'s';
-      c.style.animationDelay=(Math.random()*.6)+'s';
-      c.style.fontSize=(16+Math.random()*18)+'px';
-      document.body.appendChild(c);setTimeout(()=>c.remove(),5500);
-    }
-  }
-
-  // fullscreen note preview
-  const lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
-  function openLightbox(e,src,rot){e.stopPropagation();lbImg.src=src;lbImg.classList.toggle('rot',!!rot);lightbox.classList.add('show');}
-  function closeLightbox(e){e.stopPropagation();lightbox.classList.remove('show');}
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')lightbox.classList.remove('show');});
-
-  function showResult(type){
-    if(type==='yes'){go(7);confetti();}
-    else{go(8);}
-  }
-
-  render();
 </script>
 </body>
 </html>

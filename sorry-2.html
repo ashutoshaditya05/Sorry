@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>8:29 pm → 11:10 am. Sorry Nandu. 😴</title>
+<title>The Crime: 8:29 pm → 11:10 am 😴</title>
 <style>
   :root{
     --pink:#ff4d8d;--pink-dark:#e0316f;--deep:#f3e6ee;
-    --night1:#1b1033;--night2:#2b1447;--night3:#3d1a52;
+    --night1:#150c2b;--night2:#241141;--night3:#37164c;
     --card:rgba(255,255,255,.07);--card-line:rgba(255,255,255,.14);
-    --gold:#ffb46b;
+    --gold:#ffb46b;--red:#ff5470;--green:#25d366;
     --dawn1:#ffb3c9;--dawn2:#ffd9a0;
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
@@ -19,7 +19,7 @@
     color:var(--deep);
     background:linear-gradient(150deg,var(--night1),var(--night2),var(--night3));
     background-size:300% 300%;animation:bgmove 18s ease infinite;
-    line-height:1.55;transition:background 1.2s ease,color 1.2s ease;
+    line-height:1.5;transition:background 1.4s ease,color 1.4s ease;
   }
   @keyframes bgmove{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
   body.dawn{background:linear-gradient(150deg,var(--dawn1),var(--dawn2),#ffe9f2);color:#7a1f45;}
@@ -28,108 +28,139 @@
   body.dawn .zzz{opacity:0;}
 
   .zzz{position:fixed;inset:0;pointer-events:none;z-index:1;overflow:hidden;transition:opacity 1s;}
-  .zzz span{position:absolute;bottom:-40px;animation:rise linear infinite;opacity:.45;}
-  @keyframes rise{0%{transform:translateY(0);opacity:0}12%{opacity:.55}100%{transform:translateY(-112vh) rotate(300deg);opacity:0}}
-
-  .lyric-bar{position:fixed;top:0;left:0;right:0;z-index:45;height:32px;overflow:hidden;
-    background:rgba(224,49,111,.92);color:#fff;display:flex;align-items:center;white-space:nowrap;
-    font-size:13px;font-weight:600;letter-spacing:.3px;box-shadow:0 2px 14px rgba(224,49,111,.4);}
-  .lyric-bar span{display:inline-block;padding-left:100%;animation:marquee 20s linear infinite;}
-  @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+  .zzz span{position:absolute;bottom:-40px;animation:rise linear infinite;opacity:.4;}
+  @keyframes rise{0%{transform:translateY(0);opacity:0}12%{opacity:.5}100%{transform:translateY(-112vh) rotate(300deg);opacity:0}}
 
   .deck{position:relative;width:100%;height:100%;z-index:2;}
   .slide{
     position:absolute;inset:0;
     display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-align:center;padding:54px clamp(14px,5vw,60px) 92px;
-    opacity:0;visibility:hidden;transform:translateY(40px) scale(.98);
-    transition:opacity .55s ease, transform .55s ease, visibility .55s;
+    text-align:center;padding:26px clamp(14px,5vw,60px) 86px;
+    opacity:0;visibility:hidden;transform:translateY(30px) scale(.98);
+    transition:opacity .5s ease, transform .5s ease, visibility .5s;
     overflow-y:auto;
   }
   .slide.active{opacity:1;visibility:visible;transform:translateY(0) scale(1);}
   .card{
     background:var(--card);border:1px solid var(--card-line);
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    border-radius:26px;padding:clamp(20px,5vw,38px);
-    box-shadow:0 24px 60px rgba(0,0,0,.35);
-    max-width:600px;width:100%;transition:background .8s,border-color .8s;
+    border-radius:26px;padding:clamp(20px,4.5vw,34px);
+    box-shadow:0 24px 60px rgba(0,0,0,.4);
+    max-width:560px;width:100%;transition:background .8s,border-color .8s;
   }
-  .slide.active .card{animation:pop-in .6s ease;}
-  @keyframes pop-in{from{transform:translateY(20px);opacity:.4}to{transform:translateY(0);opacity:1}}
-  .slide.active .card > :not(.emoji-big){animation:childIn .5s ease both;}
-  .slide.active .card > :nth-child(2){animation-delay:.06s}
-  .slide.active .card > :nth-child(3){animation-delay:.14s}
-  .slide.active .card > :nth-child(4){animation-delay:.22s}
-  .slide.active .card > :nth-child(5){animation-delay:.30s}
-  .slide.active .card > :nth-child(6){animation-delay:.38s}
-  .slide.active .card > :nth-child(7){animation-delay:.46s}
-  @keyframes childIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+  .slide.active .card{animation:pop-in .5s ease;}
+  @keyframes pop-in{from{transform:translateY(18px);opacity:.4}to{transform:translateY(0);opacity:1}}
 
-  .emoji-big{font-size:clamp(48px,13vw,86px);display:block;margin-bottom:6px;animation:beat 2.6s ease-in-out infinite;}
-  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
-  .slide.active .emoji-big{animation:beat 2.6s ease-in-out infinite, emojiIn .6s ease both;}
-  @keyframes emojiIn{from{opacity:0;transform:scale(.3) rotate(-18deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+  .emoji-big{font-size:clamp(44px,12vw,76px);display:block;margin-bottom:4px;animation:beat 2.6s ease-in-out infinite;}
+  @keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
 
-  h1{font-size:clamp(26px,7vw,46px);color:#fff;line-height:1.16;margin-bottom:14px;}
-  h2{font-size:clamp(20px,5.2vw,31px);color:#fff;margin-bottom:12px;}
-  p{font-size:clamp(15px,3.4vw,19px);margin-bottom:12px;}
+  h1{font-size:clamp(25px,6.5vw,42px);color:#fff;line-height:1.15;margin-bottom:12px;}
+  h2{font-size:clamp(19px,5vw,29px);color:#fff;margin-bottom:10px;}
+  p{font-size:clamp(14.5px,3.3vw,18px);margin-bottom:10px;}
   .sub{color:var(--pink);font-weight:700;}
-  .big-line{font-size:clamp(22px,5.6vw,36px);font-weight:800;color:#fff;margin:10px 0 14px;line-height:1.25;}
-  .quiet{opacity:.72;font-size:clamp(13px,3vw,15px);font-style:italic;}
+  .big-line{font-size:clamp(21px,5.4vw,34px);font-weight:800;color:#fff;margin:8px 0 12px;line-height:1.25;}
+  .quiet{opacity:.7;font-size:clamp(12.5px,2.9vw,14.5px);font-style:italic;}
   b{color:#fff;}
   .gold{color:var(--gold);font-weight:800;}
+  .red{color:var(--red);font-weight:800;}
 
-  .counter{font-size:clamp(44px,13vw,84px);font-weight:900;letter-spacing:-1px;
-    background:linear-gradient(135deg,#ff4d8d,#ffb46b);-webkit-background-clip:text;background-clip:text;
-    -webkit-text-fill-color:transparent;line-height:1.05;margin:4px 0;}
-  .counter-label{letter-spacing:4px;text-transform:uppercase;font-size:11px;opacity:.65;margin-bottom:8px;}
+  /* ============ PHONE RE-ENACTMENT ============ */
+  .phone{
+    width:100%;max-width:330px;margin:0 auto;
+    background:#0b1014;border:6px solid #262b33;border-radius:30px;
+    box-shadow:0 26px 60px rgba(0,0,0,.6);overflow:hidden;
+    display:flex;flex-direction:column;height:min(62vh,470px);
+  }
+  .pbar{background:#1f2c34;color:#e9edef;display:flex;align-items:center;gap:9px;padding:10px 12px;flex-shrink:0;}
+  .pav{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+    display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .pwho{flex:1;text-align:left;line-height:1.25;}
+  .pwho b{font-size:14px;display:block;color:#fff;}
+  .pwho small{font-size:11px;opacity:.65;color:#e9edef;}
+  .pclock{font-size:12px;font-weight:800;color:var(--gold);background:rgba(0,0,0,.35);
+    padding:4px 9px;border-radius:20px;white-space:nowrap;}
+  .pchat{flex:1;overflow-y:auto;padding:12px 10px;display:flex;flex-direction:column;gap:7px;
+    background:#0b1014;scroll-behavior:smooth;}
+  .pb{max-width:82%;padding:7px 11px;border-radius:12px;font-size:14px;line-height:1.4;
+    animation:bubIn .35s cubic-bezier(.2,1.3,.5,1) both;position:relative;}
+  @keyframes bubIn{from{opacity:0;transform:translateY(14px) scale(.85)}to{opacity:1;transform:none}}
+  .pb small{display:block;font-size:9.5px;opacity:.55;text-align:right;margin-top:2px;}
+  .pb.her{align-self:flex-start;background:#1f2c34;color:#e9edef;border-top-left-radius:3px;}
+  .pb.her.late{background:#3a2a1a;border:1px solid var(--gold);}
+  .pb.me{align-self:flex-end;background:#005c4b;color:#e9edef;border-top-right-radius:3px;}
+  .pb .qt{border-left:3px solid var(--green);background:rgba(0,0,0,.25);padding:5px 7px;
+    border-radius:5px;font-size:11.5px;opacity:.85;margin-bottom:4px;font-style:italic;}
+  .skip{align-self:center;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);
+    opacity:.85;font-weight:800;padding:7px 12px;background:rgba(255,180,107,.12);border-radius:20px;
+    border:1px dashed rgba(255,180,107,.45);animation:bubIn .4s both;}
+  .stamp{align-self:center;margin:6px 0;padding:9px 14px;border:3px solid var(--red);color:var(--red);
+    font-weight:900;font-size:13px;letter-spacing:1px;border-radius:8px;transform:rotate(-7deg);
+    text-transform:uppercase;animation:stampIn .45s cubic-bezier(.2,1.6,.4,1) both;text-align:center;}
+  @keyframes stampIn{from{opacity:0;transform:rotate(-7deg) scale(2.4)}to{opacity:1;transform:rotate(-7deg) scale(1)}}
+  .typing{align-self:flex-start;background:#1f2c34;padding:9px 13px;border-radius:12px;display:flex;gap:4px;}
+  .typing i{width:6px;height:6px;border-radius:50%;background:#8fa1ab;animation:dot 1.2s infinite;}
+  .typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+  @keyframes dot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+  .sleeping{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:46px;pointer-events:none;opacity:0;transition:opacity .6s;}
+  .sleeping.on{opacity:.13;animation:beat 3s infinite;}
 
-  /* real chat */
-  .chat{text-align:left;margin:14px 0 14px;display:flex;flex-direction:column;gap:7px;}
-  .bub{max-width:84%;padding:9px 13px;border-radius:16px;font-size:14.5px;line-height:1.45;}
-  .bub small{display:block;font-size:10.5px;opacity:.6;margin-top:3px;}
-  .them{align-self:flex-start;background:rgba(255,255,255,.13);border-bottom-left-radius:4px;}
-  .them.late{background:rgba(255,180,107,.22);border:1px solid rgba(255,180,107,.5);}
-  .me{align-self:flex-end;background:linear-gradient(135deg,var(--pink),var(--pink-dark));color:#fff;border-bottom-right-radius:4px;}
-  .quote{border-left:3px solid rgba(255,255,255,.5);padding-left:8px;margin-bottom:5px;font-size:12.5px;opacity:.8;font-style:italic;}
-  .gap{align-self:center;text-align:center;font-size:12px;letter-spacing:1px;text-transform:uppercase;
-    opacity:.85;padding:10px 14px;border-top:1px dashed rgba(255,255,255,.25);border-bottom:1px dashed rgba(255,255,255,.25);
-    width:100%;color:var(--gold);font-weight:700;}
+  /* ============ PATIENCE TEST ============ */
+  .waitbox{background:rgba(0,0,0,.3);border:1px solid var(--card-line);border-radius:18px;padding:16px;margin:12px 0;}
+  .waitclock{font-size:clamp(38px,11vw,60px);font-weight:900;color:var(--gold);letter-spacing:2px;line-height:1.1;}
+  .status{font-size:13px;opacity:.75;min-height:20px;margin-top:4px;font-style:italic;}
+  .status.on{color:var(--green);opacity:1;font-style:normal;font-weight:700;}
+  .vs{display:flex;gap:10px;margin:12px 0;}
+  .vs>div{flex:1;background:rgba(255,255,255,.06);border:1px solid var(--card-line);
+    border-radius:14px;padding:12px 8px;}
+  .vs .n{font-size:clamp(19px,5vw,26px);font-weight:900;line-height:1.2;}
+  .vs .l{font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;opacity:.65;margin-top:3px;}
+  .vs .mine .n{color:var(--red);}
+  .vs .hers .n{color:var(--green);}
 
-  /* list rows */
-  .rows{text-align:left;display:flex;flex-direction:column;gap:8px;margin:12px 0;}
-  .row{padding:11px 13px;border-radius:14px;background:rgba(255,255,255,.06);
-    border:1px solid var(--card-line);font-size:14.5px;}
-  .row.hit{background:rgba(255,77,141,.2);border-color:var(--pink);}
+  /* ============ WAKE TAPPER ============ */
+  .sleeper{font-size:clamp(64px,19vw,104px);display:block;margin:4px 0;cursor:pointer;user-select:none;
+    transition:transform .1s;}
+  .sleeper:active{transform:scale(.85) rotate(-7deg);}
+  .sleeper.hit{animation:shake .45s ease;}
+  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-10px) rotate(-8deg)}40%{transform:translateX(10px) rotate(8deg)}60%{transform:translateX(-7px)}80%{transform:translateX(7px)}}
+  .snore{min-height:46px;font-weight:700;color:var(--gold);font-size:clamp(14.5px,3.5vw,18px);
+    display:flex;align-items:center;justify-content:center;}
+  .meter{height:10px;border-radius:10px;background:rgba(255,255,255,.12);overflow:hidden;margin:8px 0;}
+  .meter i{display:block;height:100%;width:0;border-radius:10px;
+    background:linear-gradient(90deg,var(--pink),var(--gold));transition:width .2s ease;}
 
-  /* wake-me-up tapper */
-  .sleeper{font-size:clamp(64px,20vw,110px);display:block;margin:6px 0 4px;cursor:pointer;
-    user-select:none;transition:transform .12s;}
-  .sleeper:active{transform:scale(.86) rotate(-6deg);}
-  .sleeper.awake{animation:shake .5s ease;}
-  @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px) rotate(-6deg)}40%{transform:translateX(9px) rotate(6deg)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
-  .snore{min-height:28px;font-weight:700;color:var(--gold);font-size:clamp(15px,3.6vw,19px);}
-  .meter{height:9px;border-radius:9px;background:rgba(255,255,255,.12);overflow:hidden;margin:10px 0 6px;}
-  .meter i{display:block;height:100%;width:0;border-radius:9px;
-    background:linear-gradient(90deg,var(--pink),var(--gold));transition:width .25s ease;}
+  /* ============ EXCUSE MACHINE ============ */
+  .machine{background:linear-gradient(180deg,#2a1a3d,#1a1028);border:2px solid var(--card-line);
+    border-radius:20px;padding:16px;margin:12px 0;box-shadow:inset 0 4px 20px rgba(0,0,0,.5);}
+  .reel{background:#0b0714;border:2px solid var(--gold);border-radius:12px;height:74px;
+    display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+  .reel span{font-size:clamp(15px,4vw,21px);font-weight:800;padding:0 10px;text-align:center;color:#fff;}
+  .reel.spin span{animation:blur .08s linear infinite;}
+  @keyframes blur{0%{opacity:.35;transform:translateY(-9px)}50%{opacity:1;transform:translateY(0)}100%{opacity:.35;transform:translateY(9px)}}
+  .reel.jam{border-color:var(--red);animation:shake .4s ease;}
+  .reel.jam span{color:var(--red);}
+  .lever{margin-top:12px;}
+  .tries{font-size:11px;letter-spacing:1.4px;text-transform:uppercase;opacity:.6;margin-top:8px;}
 
-  /* receipt */
-  .receipt{background:rgba(0,0,0,.3);border:1px dashed var(--card-line);border-radius:14px;
-    padding:14px 16px;margin:12px 0;text-align:left;font-size:14.5px;}
+  /* ============ RECEIPT ============ */
+  .receipt{background:rgba(0,0,0,.32);border:1px dashed var(--card-line);border-radius:14px;
+    padding:12px 15px;margin:10px 0;text-align:left;font-size:14.5px;}
   .receipt div{display:flex;justify-content:space-between;gap:12px;padding:6px 0;
     border-bottom:1px dotted rgba(255,255,255,.15);}
-  .receipt div:last-child{border-bottom:none;font-weight:800;color:var(--gold);padding-top:10px;}
+  .receipt div:last-child{border-bottom:none;font-weight:800;color:var(--red);padding-top:9px;}
 
   .btn{
     position:relative;overflow:hidden;
     display:inline-block;background:linear-gradient(135deg,var(--pink),var(--pink-dark));
-    color:#fff;border:none;font-size:clamp(14px,3.4vw,17px);font-weight:700;
-    padding:13px 22px;border-radius:50px;cursor:pointer;margin:8px 5px 0;
+    color:#fff;border:none;font-size:clamp(14px,3.3vw,16.5px);font-weight:700;
+    padding:13px 22px;border-radius:50px;cursor:pointer;margin:7px 4px 0;
     box-shadow:0 10px 24px rgba(224,49,111,.4);
     transition:transform .15s ease, box-shadow .15s ease;-webkit-appearance:none;
   }
   .btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 16px 32px rgba(224,49,111,.55);}
   .btn:active{transform:scale(.92);}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;}
   .btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:2px solid var(--pink);box-shadow:none;}
   body.dawn .btn.ghost{color:var(--pink-dark);background:#fff;}
   .btn.pop{animation:btnpop .4s ease;}
@@ -138,8 +169,8 @@
     transform:scale(0);animation:ripple .6s ease-out;pointer-events:none;}
   @keyframes ripple{to{transform:scale(4);opacity:0}}
 
-  .slide-img{max-width:min(62vw,190px);max-height:min(34vh,250px);border-radius:16px;
-    box-shadow:0 12px 30px rgba(0,0,0,.4);display:block;transform:rotate(90deg);margin:36px auto;cursor:zoom-in;}
+  .slide-img{max-width:min(56vw,170px);max-height:min(30vh,220px);border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,.45);display:block;transform:rotate(90deg);margin:32px auto;cursor:zoom-in;}
   .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;padding:20px;}
   .lightbox.show{display:flex;animation:fade .3s ease;}
   @keyframes fade{from{opacity:0}to{opacity:1}}
@@ -148,33 +179,32 @@
   .lightbox .close{position:fixed;top:16px;right:16px;z-index:101;width:50px;height:50px;border-radius:50%;
     border:none;background:#fff;color:#000;font-size:26px;cursor:pointer;}
 
-  .timer{font-size:clamp(34px,10vw,62px);font-weight:900;color:var(--gold);letter-spacing:2px;margin:10px 0;}
-
   .side-btn{
-    position:fixed;bottom:20px;z-index:40;width:52px;height:52px;border-radius:50%;
+    position:fixed;bottom:18px;z-index:40;width:50px;height:50px;border-radius:50%;
     background:rgba(255,255,255,.12);color:#fff;border:2px solid var(--pink);
-    font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:25px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
     box-shadow:0 6px 16px rgba(0,0,0,.35);transition:transform .15s ease,opacity .3s;backdrop-filter:blur(8px);
   }
   body.dawn .side-btn{color:var(--pink-dark);background:rgba(255,255,255,.8);}
   .side-btn:hover{transform:scale(1.12);}
-  .side-btn.left{left:calc(50% - 60px);}
+  .side-btn.left{left:calc(50% - 58px);}
   .side-btn.right{left:calc(50% + 8px);}
   .side-btn.hide{opacity:0;pointer-events:none;}
-  @media (max-width:480px){.side-btn{width:46px;height:46px;font-size:23px;bottom:14px;}}
 
-  .home-btn{position:fixed;top:42px;left:12px;z-index:46;width:44px;height:44px;border-radius:50%;
+  .home-btn{position:fixed;top:10px;left:10px;z-index:46;width:40px;height:40px;border-radius:50%;
     border:1px solid var(--card-line);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);
-    color:#fff;font-size:17px;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;}
+    color:#fff;font-size:16px;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;}
   body.dawn .home-btn{color:var(--pink-dark);background:rgba(255,255,255,.75);}
-  .music-btn{position:fixed;top:42px;right:12px;z-index:46;width:46px;height:46px;border-radius:50%;
-    border:none;cursor:pointer;font-size:20px;background:linear-gradient(135deg,var(--pink),var(--pink-dark));
+  .music-btn{position:fixed;top:10px;right:10px;z-index:46;width:42px;height:42px;border-radius:50%;
+    border:none;cursor:pointer;font-size:18px;background:linear-gradient(135deg,var(--pink),var(--pink-dark));
     color:#fff;box-shadow:0 8px 20px rgba(224,49,111,.45);transition:transform .2s;}
-  .music-btn:hover{transform:scale(1.1);}
   .music-btn.playing{animation:spin 4s linear infinite;}
   @keyframes spin{to{transform:rotate(360deg);}}
 
-  .burst{position:fixed;z-index:50;pointer-events:none;font-size:22px;animation:burst .9s ease-out forwards;}
+  .progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--pink),var(--gold));
+    z-index:50;transition:width .4s ease;width:0;}
+
+  .burst{position:fixed;z-index:55;pointer-events:none;font-size:22px;animation:burst .9s ease-out forwards;}
   @keyframes burst{0%{transform:translate(0,0) scale(.5);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.4);opacity:0}}
   .confetti{position:fixed;top:-10px;z-index:60;pointer-events:none;animation:drop linear forwards;}
   @keyframes drop{to{transform:translateY(112vh) rotate(720deg);opacity:.9}}
@@ -182,228 +212,182 @@
 </head>
 <body>
 
-<div class="lyric-bar"><span>8:29 pm — "kha?" · 12:00 am — "ho kha" · 4:18 am — "ho kha ?" · 11:10 am — mera pehla reply... ₹670 ke refund ke baare me. 🤡 Nandu main sach me nikamma hoon.</span></div>
-
+<div class="progress" id="progress"></div>
 <div class="zzz" id="zzz"></div>
 
 <audio id="song" src="song.mp3" loop preload="auto" autoplay></audio>
 <a class="home-btn" href="index.html" title="Back">🏠</a>
-<button id="musicBtn" class="music-btn playing" onclick="toggleMusic()" title="Play / pause music">🎶</button>
+<button id="musicBtn" class="music-btn playing" onclick="toggleMusic()" title="Music">🎶</button>
 
 <div class="deck" id="deck">
 
-  <!-- 0 HERO -->
+  <!-- 0 — COLD OPEN -->
   <section class="slide active">
     <div class="card">
-      <span class="emoji-big">😴</span>
-      <h1>Nandu... maine gin liya hai.</h1>
-      <p>Tumne <b>8:29 pm</b> pe pucha: <i>"kha?"</i></p>
-      <p>Maine jawab diya <b>11:10 am</b> pe. Agle din. 🫠</p>
-      <p class="sub">Is baar koi promise nahi milega. Sirf sach. Aur thoda sa besharam comedy. 🙈</p>
-      <button class="btn" onclick="next()">Kitna gap tha? →</button>
+      <span class="emoji-big">🚨</span>
+      <h1>Case #670</h1>
+      <p class="quiet" style="letter-spacing:2px;text-transform:uppercase;font-style:normal;">Sunday · 10 July · 8:29 pm</p>
+      <p style="margin-top:12px;">Ek ladki ne pucha <b>"kha?"</b></p>
+      <p>Ek ladka so gaya. 🫠</p>
+      <p class="sub">Poora crime dobara chalta hai — apni aankhon se dekho.</p>
+      <button class="btn" onclick="next()">▶️ Crime chalao</button>
+      <p class="quiet" style="margin-top:10px;">(awaaz on kar lo 🔊)</p>
     </div>
   </section>
 
-  <!-- 1 COUNTER -->
+  <!-- 1 — RE-ENACTMENT -->
   <section class="slide">
-    <div class="card">
-      <p class="counter-label">Tumne wait kiya</p>
-      <div class="counter" id="counter">0h 00m</div>
-      <p class="counter-label">Chaudah ghante. Ikkyalis minute.</p>
-      <p>Itni der me Lucknow se Mumbai jaake wapas aa sakta tha. Maine kya kiya? <b>Kharate.</b> 💤</p>
-      <p class="quiet">Aur tum? Tum poochhti rahi. Baar baar.</p>
-      <button class="btn" onclick="next()">Chat khol ke dikhata hoon 💬</button>
-    </div>
-  </section>
-
-  <!-- 2 THE REAL CHAT -->
-  <section class="slide">
-    <div class="card">
-      <h2>Exhibit A: hamari chat 💬</h2>
-      <div class="chat">
-        <div class="bub them">kha?<small>8:29 pm</small></div>
-        <div class="bub them">are<small>12:00 am</small></div>
-        <div class="bub them">ho kha<small>12:00 am</small></div>
-        <div class="bub them">dekhna koi refund aya ky 670 around<small>12:46 am</small></div>
-        <div class="bub them late">ho kha ?<small>4:18 am 🌙</small></div>
-        <div class="gap">⏳ 14 ghante 41 minute — total silence ⏳</div>
-        <div class="bub me"><div class="quote">dekhna koi refund aya ky 670 around</div>Kaha se? nahi aaya<small>11:10 am</small></div>
-        <div class="bub me">Kal thoda kuch ho gayi thi baat personal kuch, 8 baje ghar gaya, sir bohot dard kar rha tha, so gaya. Mai abhi utha. Good morning<small>11:12 am</small></div>
+    <div style="width:100%;max-width:360px;">
+      <div class="phone">
+        <div class="pbar">
+          <div class="pav">🐵</div>
+          <div class="pwho"><b>Ashutosh</b><small id="pSeen">online</small></div>
+          <div class="pclock" id="pClock">8:29 pm</div>
+        </div>
+        <div class="pchat" id="pchat">
+          <div class="sleeping" id="sleepIcon">😴</div>
+        </div>
       </div>
-      <p class="quiet">Padho aur batao — kaun galat lag raha hai? 🙋‍♂️ Main. Main galat lag raha hoon.</p>
-      <button class="btn" onclick="next()">Wo 4:18 am waala... 🌙</button>
+      <button class="btn ghost" id="replayBtn" onclick="playScene()" style="display:none;">🔁 Phir se</button>
+      <button class="btn" id="sceneNext" onclick="next()" style="display:none;">Ab hisaab karte hain →</button>
     </div>
   </section>
 
-  <!-- 3 THE 4:18 AM -->
+  <!-- 2 — THE PATIENCE TEST -->
   <section class="slide">
     <div class="card">
-      <span class="emoji-big">🌙</span>
-      <h2>4:18 AM.</h2>
-      <p>Poori duniya so rahi thi. Tum jaag rahi thi.</p>
-      <p class="big-line">"ho kha ?"</p>
-      <p>Char baj ke atthara minute. Us waqt tumhe <b>meri zarurat thi</b> — kisi kaam se, ya bas mera naam dekhne ke liye. Aur main? Available hi nahi tha.</p>
-      <p class="quiet">Ye wo message hai jo mujhe sabse zyada chubh raha hai. 🥺</p>
-      <button class="btn" onclick="next()">Ab sabse sharmnaak part 🤡</button>
+      <h2>⏱️ Test: kitni der wait kar sakti ho?</h2>
+      <p class="quiet">Main "reply" karne waala hoon. Bas... wait karo. Jab tak bardaasht ho.</p>
+      <div class="waitbox">
+        <div class="waitclock" id="waitClock">00:00</div>
+        <div class="status" id="waitStatus">Ashutosh · last seen 8:15 pm</div>
+      </div>
+      <button class="btn" id="giveUp" onclick="giveUp()">Bas! Aur nahi 😤</button>
+      <div id="waitResult" style="display:none;">
+        <div class="vs">
+          <div class="hers"><div class="n" id="yourWait">0s</div><div class="l">Tumne jhela (abhi)</div></div>
+          <div class="mine"><div class="n">52,860s</div><div class="l">Maine tumse karwaya</div></div>
+        </div>
+        <p class="big-line" id="multiplier">😶</p>
+        <button class="btn ghost" onclick="next()">Ab mujhe uthao 😴</button>
+      </div>
     </div>
   </section>
 
-  <!-- 4 THE REFUND ROAST -->
+  <!-- 3 — WAKE ME UP -->
   <section class="slide">
     <div class="card">
-      <span class="emoji-big">🤡</span>
-      <h2>Aur mera pehla message kya tha?</h2>
-      <p>Paanch baar tumne pucha ki main <i>kaha hoon</i>. Chaudah ghante baad main uthta hoon, phone kholta hoon, aur sabse pehle likhta hoon:</p>
-      <p class="big-line">"Kaha se? nahi aaya."</p>
-      <p><b>₹670 ka refund status.</b> 🧾 Pehle refund. Baad me Nandu.</p>
-      <p class="quiet">Boyfriend kam, Amazon customer care zyada. Main khud apne aap se naaraz hoon. 🙃</p>
-      <button class="btn" onclick="next()">Sharam aa rahi hai, aage 😖</button>
-    </div>
-  </section>
-
-  <!-- 5 REASON vs EXCUSE -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🙇‍♂️</span>
-      <h2>Reason hai. Excuse nahi.</h2>
-      <p>Haan — kal kuch personal chal raha tha, 8 baje ghar pahucha, sir phat raha tha, aur main gir ke so gaya.</p>
-      <p>Ye <b>reason</b> hai. Ye batata hai <i>kya hua</i>.</p>
-      <p class="big-line">Par ye excuse nahi hai.</p>
-      <p>Kyunki sar dard me bhi do second lagte hain likhne me: <i>"so raha hoon, subah baat karta hoon."</i> Wo do second maine tumhe nahi diye. Aur wahi meri galti hai.</p>
-      <button class="btn" onclick="next()">Asli baat sunlo 🫶</button>
-    </div>
-  </section>
-
-  <!-- 6 YOU NEEDED ME -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🫶</span>
-      <h2>Tumhe meri zarurat thi.</h2>
-      <p>Ye "reply late ho gaya" waali baat nahi hai, Nandu.</p>
-      <p class="big-line">Tumhe meri zarurat thi — aur main nahi tha.</p>
-      <p>Paanch messages. Aath baje se chaar baje tak. Tumne har ghante mujhe dhoondha, aur har baar screen khaali rahi.</p>
-      <p>Jab tumhe mera zarurat ho aur main <span class="gold">"currently unavailable"</span> ban jaun — us se bura kuch nahi. Uske liye, sach me: <b>sorry.</b> 🙏</p>
-      <button class="btn" onclick="next()">Chalo mood halka karte hain 😴</button>
-    </div>
-  </section>
-
-  <!-- 7 WAKE ME UP GAME -->
-  <section class="slide">
-    <div class="card">
-      <h2>Jo tum us raat karna chahti thi 👇</h2>
-      <p class="quiet">Mujhe uthao. Jitna zor chahiye utna maaro. Main deserve karta hoon.</p>
+      <h2>😤 Ab wo karo jo us raat karna chahti thi</h2>
+      <p class="quiet">Mujhe uthao. Jitni zor se marzi. Main deserve karta hoon.</p>
       <span class="sleeper" id="sleeper" onclick="poke()">😴</span>
       <div class="meter"><i id="meterFill"></i></div>
-      <p class="snore" id="snore">💤 zzz... zzz... (14 ghante se yahi chal raha hai)</p>
-      <button class="btn ghost" id="wakeNext" onclick="next()" style="display:none;">Ab aage 💗</button>
+      <p class="snore" id="snore">💤 zzz... (tap karo)</p>
+      <button class="btn" id="wakeNext" onclick="next()" style="display:none;">Ab bahana suno 🎰</button>
     </div>
   </section>
 
-  <!-- 8 THE REFUND (romantic) -->
+  <!-- 4 — EXCUSE MACHINE -->
+  <section class="slide">
+    <div class="card">
+      <h2>🎰 Excuse Machine 3000</h2>
+      <p class="quiet">Ek bahana nikalo. Dekho kitna bakwaas hai.</p>
+      <div class="machine">
+        <div class="reel" id="reel"><span id="reelText">— lever khicho —</span></div>
+        <button class="btn lever" id="lever" onclick="pull()">🕹️ Lever khicho</button>
+        <div class="tries" id="tries">Bahane bache: 3</div>
+      </div>
+      <div id="excuseEnd" style="display:none;">
+        <p class="big-line">Sach ye hai 👇</p>
+        <p>Sar dard tha. Ghar pahucha aur gir ke so gaya. Ye <b>reason</b> hai.</p>
+        <p class="sub">Par excuse nahi. "So raha hoon" likhne me 2 second lagte. Wo 2 second maine tumhe nahi diye.</p>
+        <button class="btn ghost" onclick="next()">Aur ek sharam ki baat 🧾</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 — THE ₹670 -->
   <section class="slide">
     <div class="card">
       <span class="emoji-big">🧾</span>
-      <h2>Refund ki baat karein? 💗</h2>
+      <h2>14 ghante baad, mera pehla shabd?</h2>
+      <p class="big-line">"Kaha se? nahi aaya."</p>
+      <p>Paanch baar tumne pucha main kaha hoon. Aur maine uth ke sabse pehle <b>₹670 ke refund</b> ka status diya. 🤡</p>
       <div class="receipt">
         <div><span>Refund tumne manga</span><span>₹670</span></div>
         <div><span>Status</span><span>Nahi aaya 🚫</span></div>
         <div><span>Jo maine tumse liya</span><span>14h 41m</span></div>
-        <div><span>Uska refund</span><span>Main khud 💗</span></div>
+        <div><span>Uska refund possible?</span><span>Nahi ❌</span></div>
       </div>
-      <p>₹670 toh shayad aa hi jaayega, Nandu. Par tumhare wo <b>chaudah ghante</b> — wo main kaise lautaun?</p>
-      <p class="big-line">Bas apne aap ko de sakta hoon. Poora. Interest ke saath.</p>
-      <p class="quiet">Aur haan — refund aaya toh momos tumhare. Wo baat alag hai. 🥟😌</p>
-      <button class="btn" onclick="next()">Ek aakhri sach 🤐</button>
+      <p class="quiet">₹670 shayad aa bhi jaaye. Wo 14 ghante kabhi wapas nahi aayenge. Isliye refund nahi — <b>maafi</b> maang raha hoon.</p>
+      <button class="btn" onclick="next()">Ek asli baat 🫶</button>
     </div>
   </section>
 
-  <!-- 9 NO PROMISES -->
+  <!-- 6 — THE REAL ONE -->
   <section class="slide">
     <div class="card">
-      <span class="emoji-big">🤐</span>
-      <h2>Is baar koi promise nahi.</h2>
-      <p>Pichli website me maine tumhe <b>baarah promise</b> diye the. Momos, ice cream, shares, "0.2 second me reply". Sab.</p>
-      <p>Aur phir main <b>14 ghante</b> ke liye gayab ho gaya. 🫠</p>
-      <p class="big-line">Toh promise ka ab koi wazan nahi bacha.</p>
-      <p>Is baar sirf ye: maine dekh liya ki tumne kya feel kiya hoga. Maine gin liya — har message, har ghanta. <b>Aur mujhe sharam aayi.</b></p>
-      <p class="quiet">Promise words hote hain. Ab sirf kaam bolega. 🤞</p>
+      <span class="emoji-big">🫶</span>
+      <h2>4:18 am pe tum jaag rahi thi.</h2>
+      <p class="big-line">Tumhe meri zarurat thi. Main nahi tha.</p>
+      <p>Pichli website me maine tumhe <b>12 promise</b> diye the. Aur phir 14 ghante gayab ho gaya. Toh promise ka wazan khatam. 🤐</p>
+      <p class="sub">Is baar zero promise. Sirf ye: maine gin liya — har message, har ghanta. Aur mujhe sharam aayi.</p>
       <button class="btn" onclick="next()">Toh... 🥺</button>
     </div>
   </section>
 
-  <!-- 10 THE ASK -->
+  <!-- 7 — THE ASK -->
   <section class="slide">
     <div class="card">
       <span class="emoji-big">🥺</span>
       <h2>Maaf, Miss Jsaun?</h2>
-      <p>14 ghante 41 minute tumne diye. Ab jo bhi sazaa ho — sar aankhon par. 🙏</p>
-      <button class="btn" onclick="showResult('yes')">Chalo, maaf kiya 😊</button>
-      <button class="btn ghost" onclick="go(11)">Pehle tum wait karo ⏳</button>
-      <button class="btn ghost" onclick="go(12)">Nahi, aur bolo 😤</button>
+      <button class="btn" onclick="win()">Chalo, maaf kiya 😊</button>
+      <button class="btn ghost" onclick="go(8)">Pehle tum wait karo ⏳</button>
+      <button class="btn ghost" onclick="go(9)">Nahi, aur bolo 😤</button>
     </div>
   </section>
 
-  <!-- 11 WAIT TIMER -->
+  <!-- 8 — HIS TURN TO WAIT -->
   <section class="slide">
     <div class="card">
-      <span class="emoji-big">⏳</span>
-      <h2>Bilkul sahi. Ab main wait karta hoon.</h2>
-      <p class="quiet">Chaudah ghante ikkyalis minute. Bilkul utne hi. Baithe rehne do mujhe. 😔</p>
-      <div class="timer" id="timer">14:41:00</div>
-      <p>Har second bata raha hai ki tumne kya jhela hoga. Aur main hil bhi nahi raha. 🧎</p>
-      <button class="btn" onclick="showResult('yes')">Bas, maaf kiya 😊</button>
-      <button class="btn ghost" onclick="go(12)">Aur bolo 😤</button>
+      <span class="emoji-big">🧎</span>
+      <h2>Sahi baat. Ab main wait karta hoon.</h2>
+      <div class="waitbox">
+        <div class="waitclock" id="myTimer">14:41:00</div>
+        <div class="status">Ashutosh · waiting... hil bhi nahi raha</div>
+      </div>
+      <p class="quiet">52,860 second. Poore. Baitha hoon. 😔</p>
+      <button class="btn" onclick="win()">Bas, maaf kiya 😊</button>
+      <button class="btn ghost" onclick="go(9)">Aur bolo 😤</button>
     </div>
   </section>
 
-  <!-- 12 ROAST 1 -->
+  <!-- 9 — MANAO METER -->
   <section class="slide">
     <div class="card">
-      <span class="emoji-big">🔄</span>
-      <h2>Roles reverse karke dekho</h2>
-      <p>Agar <i>tum</i> 14 ghante gayab ho jaati... main 200 call kar chuka hota, tumhare ghar pahuch gaya hota, police station tak chala jaata. 🚓</p>
-      <p>Aur tumne kya kiya? Sirf itna likha: <i>"ho kha ?"</i></p>
-      <p class="sub">Tum mujhse kitni acchi ho, ye us ek message me dikh gaya. 🥹</p>
-      <button class="btn" onclick="showResult('yes')">Ab maaf kiya 😊</button>
-      <button class="btn ghost" onclick="next()">Aur sunao 😤</button>
+      <h2>😤 Theek hai. Manwao.</h2>
+      <p class="quiet">Dabate raho. Main girta jaunga.</p>
+      <span class="sleeper" id="beggar">🙏</span>
+      <div class="meter"><i id="begFill"></i></div>
+      <p class="snore" id="begLine">"Nandu... ek baar sun lo?"</p>
+      <button class="btn" id="begBtn" onclick="beg()">Aur manao 😤</button>
+      <div id="begEnd" style="display:none;">
+        <p class="big-line">Bas ek smile de do. 💨</p>
+        <p class="quiet">Wahi mera ₹670 ka refund hai.</p>
+        <img src="smile.jpeg" alt="smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',true)" onerror="this.style.display='none';" />
+        <button class="btn" onclick="win()">Le lo maafi 😊💗</button>
+        <button class="btn ghost" onclick="go(7)">Phir se poochho 🔁</button>
+      </div>
     </div>
   </section>
 
-  <!-- 13 ROAST 2 -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">🔍</span>
-      <h2>Maine Google se pucha</h2>
-      <p><i>"how to say sorry to a girl who messaged you at 4:18 am and you replied after 14 hours"</i></p>
-      <p class="big-line">Google ne kaha: "Bhai, tu gaya. 💀"</p>
-      <p>Phir maine wahi kiya jo mujhe aata hai — ek aur website bana di. 🧑‍💻 Sar dard is baar bhi hai. Par is baar main jaag raha hoon.</p>
-      <button class="btn" onclick="showResult('yes')">Theek hai, maaf 😊</button>
-      <button class="btn ghost" onclick="next()">Aage 😤</button>
-    </div>
-  </section>
-
-  <!-- 14 ROAST 3 / SMILE -->
-  <section class="slide">
-    <div class="card">
-      <span class="emoji-big">😄</span>
-      <h2>Refund status: pending 🔄</h2>
-      <p>₹670 — <i>processing</i>. Nandu ki naaraazgi — <i>processing</i>. Aur meri neend — <b>cancelled.</b> Permanently. 😵‍💫</p>
-      <p>Bas ek cheez chahiye jo instant refund ho jaaye: wo waali smile 💨</p>
-      <img src="smile.jpeg" alt="that smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',true)" onerror="this.style.display='none';" />
-      <button class="btn" onclick="showResult('yes')">Le lo maafi 😊💗</button>
-      <button class="btn ghost" onclick="go(10)">Phir se poochho 🔁</button>
-    </div>
-  </section>
-
-  <!-- 15 FORGIVEN -->
+  <!-- 10 — FINALE -->
   <section class="slide">
     <div class="card">
       <span class="emoji-big">🌅</span>
-      <h2>Ab wali good morning asli hai. 💗</h2>
-      <p>Us din ki "good morning" 14 ghante late thi. Ye waali time pe hai.</p>
-      <p><b>Good morning, Nandu.</b> Thank you — tum itni asaani se maaf kar deti ho, aur main us cheez ko halke me nahi lunga.</p>
-      <p class="sub">Ab batao — <i>tum</i> kaha ho? Kyunki is baar main yahi hoon. Jaag raha hoon. Phone haath me. 📞💗</p>
-      <p class="quiet">(Refund aaye toh bata dena. Momos pakke. 🥟)</p>
+      <h2>Ye waali "good morning" time pe hai. 💗</h2>
+      <p>Us din waali 14 ghante late thi. Thank you, Nandu — tum bahut asaani se maaf kar deti ho, aur main us cheez ko halke me nahi lunga.</p>
+      <p class="sub">Ab batao — <i>tum</i> kaha ho? Is baar main yahi hoon. Jaag raha hoon. 📞</p>
+      <p class="quiet">Aur kabhi fursat me poochhna — ki ek late reply ke liye koi poori website kyun bana deta hai. 😌 Filhaal... bas sorry. (Refund aaye toh batana, momos pakke 🥟)</p>
       <button class="btn ghost" onclick="location.href='index.html'">🏠 Wapas</button>
     </div>
   </section>
@@ -419,182 +403,318 @@
 <button class="side-btn right" id="nextBtn" onclick="next()">›</button>
 
 <script>
-  // floating night stuff
-  const emojis=['💤','⭐','🌙','💗','😴','✨'];
-  const zc=document.getElementById('zzz');
-  for(let i=0;i<18;i++){
-    const s=document.createElement('span');
-    s.textContent=emojis[Math.floor(Math.random()*emojis.length)];
-    s.style.left=Math.random()*100+'vw';
-    s.style.fontSize=(13+Math.random()*20)+'px';
-    s.style.animationDuration=(8+Math.random()*11)+'s';
-    s.style.animationDelay=(Math.random()*12)+'s';
-    zc.appendChild(s);
+/* ---------- sound (no files needed) ---------- */
+let ac=null;
+function audio(){if(!ac)ac=new (window.AudioContext||window.webkitAudioContext)();return ac;}
+function tone(freq,dur,type,vol){
+  try{
+    const c=audio(),o=c.createOscillator(),g=c.createGain();
+    o.type=type||'sine';o.frequency.value=freq;
+    g.gain.setValueAtTime(vol||.09,c.currentTime);
+    g.gain.exponentialRampToValueAtTime(.0001,c.currentTime+dur);
+    o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+dur);
+  }catch(e){}
+}
+function ping(){tone(880,.13,'sine',.11);setTimeout(()=>tone(1180,.16,'sine',.09),90);}
+function buzz(){tone(150,.16,'square',.06);}
+function alarm(){tone(660,.09,'square',.05);setTimeout(()=>tone(880,.12,'square',.05),110);}
+function buzzPhone(ms){if(navigator.vibrate)navigator.vibrate(ms||60);}
+
+/* ---------- floating night bits ---------- */
+const zc=document.getElementById('zzz');
+['💤','⭐','🌙','💗','😴','✨'].forEach(()=>{});
+for(let i=0;i<16;i++){
+  const s=document.createElement('span');
+  s.textContent=['💤','⭐','🌙','💗','😴','✨'][Math.floor(Math.random()*6)];
+  s.style.left=Math.random()*100+'vw';
+  s.style.fontSize=(13+Math.random()*18)+'px';
+  s.style.animationDuration=(8+Math.random()*11)+'s';
+  s.style.animationDelay=(Math.random()*12)+'s';
+  zc.appendChild(s);
+}
+
+/* ---------- deck ---------- */
+const slides=[...document.querySelectorAll('.slide')];
+const prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
+const progress=document.getElementById('progress');
+let cur=0;
+
+function render(){
+  slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
+  prevBtn.classList.toggle('hide',cur===0);
+  nextBtn.classList.toggle('hide',cur===slides.length-1);
+  progress.style.width=(cur/(slides.length-1)*100)+'%';
+  if(cur===1)playScene();
+  if(cur===2)startPatience();
+  if(cur===8)startMyTimer();
+}
+function go(i){cur=Math.max(0,Math.min(slides.length-1,i));render();}
+function next(){if(cur<slides.length-1){cur++;render();}}
+function prev(){if(cur>0){cur--;render();}}
+
+/* ---------- SCENE 1: the re-enactment ---------- */
+const script=[
+  {clock:'8:29 pm',  msg:'kha?',                              side:'her'},
+  {skip:'3 ghante 31 minute beet gaye...', clock:'12:00 am'},
+  {clock:'12:00 am', msg:'are',                               side:'her'},
+  {clock:'12:00 am', msg:'ho kha',                            side:'her'},
+  {clock:'12:46 am', msg:'dekhna koi refund aya ky 670 around', side:'her'},
+  {skip:'Raat gehri ho gayi. Sab so gaye. Tum nahi.', clock:'4:18 am', sleep:true},
+  {clock:'4:18 am',  msg:'ho kha ?',                          side:'her', late:true},
+  {tease:true},
+  {stamp:'😴 14 ghante 41 minute<br>KOI REPLY NAHI'},
+  {skip:'Suraj nikla. Main uth gaya. 🌤️', clock:'11:10 am'},
+  {clock:'11:10 am', msg:'Kaha se? nahi aaya', side:'me', quote:'dekhna koi refund aya ky 670 around'},
+  {clock:'11:12 am', msg:'Kal thoda kuch ho gayi thi baat personal kuch, 8 baje ghar gaya, sir bohot dard kar rha tha, so gaya. Mai abhi utha. Good morning', side:'me'},
+  {stamp:'🤡 pehle refund.<br>baad me Nandu.'}
+];
+const pchat=document.getElementById('pchat'),pClock=document.getElementById('pClock'),
+      pSeen=document.getElementById('pSeen'),sleepIcon=document.getElementById('sleepIcon'),
+      sceneNext=document.getElementById('sceneNext'),replayBtn=document.getElementById('replayBtn');
+let timers=[],playing=false;
+
+function playScene(){
+  timers.forEach(clearTimeout);timers=[];
+  pchat.querySelectorAll(':not(.sleeping)').forEach(n=>n.remove());
+  sceneNext.style.display='none';replayBtn.style.display='none';
+  sleepIcon.classList.remove('on');pSeen.textContent='online';pClock.textContent='8:29 pm';
+  playing=true;
+  let t=500;
+  script.forEach(step=>{
+    timers.push(setTimeout(()=>step_(step),t));
+    t += step.skip?1500 : step.stamp?1400 : step.tease?2600 : 1250;
+  });
+  timers.push(setTimeout(()=>{
+    sceneNext.style.display='inline-block';
+    replayBtn.style.display='inline-block';
+    playing=false;
+  },t));
+}
+function step_(s){
+  if(s.clock)pClock.textContent=s.clock;
+  if(s.sleep){sleepIcon.classList.add('on');pSeen.textContent='last seen 8:15 pm';}
+  if(s.skip){add(`<div class="skip">⏩ ${s.skip}</div>`);return;}
+  if(s.stamp){add(`<div class="stamp">${s.stamp}</div>`);buzz();buzzPhone([90,60,90]);return;}
+  if(s.tease){
+    const d=document.createElement('div');d.className='typing';
+    d.innerHTML='<i></i><i></i><i></i>';pchat.appendChild(d);scroll_();
+    timers.push(setTimeout(()=>{d.remove();scroll_();},1700));
+    return;
   }
+  const q=s.quote?`<div class="qt">${s.quote}</div>`:'';
+  add(`<div class="pb ${s.side}${s.late?' late':''}">${q}${s.msg}<small>${s.clock}</small></div>`);
+  if(s.side==='her'){ping();buzzPhone(s.late?[120,70,120]:70);}
+  else{tone(520,.1,'sine',.06);}
+}
+function add(html){
+  const w=document.createElement('div');w.innerHTML=html;
+  pchat.appendChild(w.firstChild);scroll_();
+}
+function scroll_(){pchat.scrollTop=pchat.scrollHeight;}
 
-  const slides=[...document.querySelectorAll('.slide')];
-  const prevBtn=document.getElementById('prevBtn'),nextBtn=document.getElementById('nextBtn');
-  let cur=0;
-
-  function render(){
-    slides.forEach((s,i)=>s.classList.toggle('active',i===cur));
-    prevBtn.classList.toggle('hide',cur===0);
-    nextBtn.classList.toggle('hide',cur===slides.length-1);
-    if(cur===1)countUp();
-    if(cur===11)startTimer();
-  }
-  function go(i){cur=Math.max(0,Math.min(slides.length-1,i));render();}
-  function next(){if(cur<slides.length-1){cur++;render();}}
-  function prev(){if(cur>0){cur--;render();}}
-
-  // 0h 00m -> 14h 41m
-  let counted=false;
-  function countUp(){
-    if(counted)return;counted=true;
-    const el=document.getElementById('counter');
-    const total=14*60+41;let m=0;
-    const step=Math.ceil(total/60);
-    const t=setInterval(()=>{
-      m=Math.min(total,m+step);
-      el.textContent=Math.floor(m/60)+'h '+String(m%60).padStart(2,'0')+'m';
-      if(m>=total)clearInterval(t);
-    },40);
-  }
-
-  // her turn to wait: 14:41:00 counting down
-  let timerOn=false;
-  function startTimer(){
-    if(timerOn)return;timerOn=true;
-    const el=document.getElementById('timer');
-    let left=14*3600+41*60;
-    setInterval(()=>{
-      left--;
-      const h=String(Math.floor(left/3600)).padStart(2,'0');
-      const m=String(Math.floor(left%3600/60)).padStart(2,'0');
-      const s=String(left%60).padStart(2,'0');
-      el.textContent=h+':'+m+':'+s;
-    },1000);
-  }
-
-  // wake-me-up tapper
-  const lines=[
-    '💤 zzz... zzz... (14 ghante se yahi chal raha hai)',
-    '😪 "hmm... 5 minute aur..."',
-    '😑 "kaun hai... sir dard kar raha hai yaar..."',
-    '😬 "Nandu? nahi nahi, sapna hoga..."',
-    '😵 "ek missed call aur aayi kya..."',
-    '🫨 "ruko ruko... 4 baje ka message?!"',
-    '😳 "OH NO. 14 GHANTE?!"',
-    '🫠 "main gaya. main poora gaya."',
-    '🙇‍♂️ "NANDU SORRY! MAIN UTH GAYA!"'
-  ];
-  let taps=0;const need=lines.length-1;
-  const sleeper=document.getElementById('sleeper');
-  const snore=document.getElementById('snore');
-  const meterFill=document.getElementById('meterFill');
-  const wakeNext=document.getElementById('wakeNext');
-  const faces=['😴','😪','😑','😬','😵','🫨','😳','🫠','🙇‍♂️'];
-  function poke(){
-    if(taps>=need){confetti();return;}
-    taps++;
-    sleeper.textContent=faces[taps];
-    snore.textContent=lines[taps];
-    meterFill.style.width=(taps/need*100)+'%';
-    sleeper.classList.remove('awake');void sleeper.offsetWidth;sleeper.classList.add('awake');
-    if(taps>=need){
-      wakeNext.style.display='inline-block';
-      confetti();
+/* ---------- SCENE 2: patience test ---------- */
+let pStart=0,pInt=null,pDone=false;
+const waitClock=document.getElementById('waitClock'),waitStatus=document.getElementById('waitStatus'),
+      waitResult=document.getElementById('waitResult'),giveUpBtn=document.getElementById('giveUp');
+const teases=['Ashutosh · last seen 8:15 pm','Ashutosh is typing...','Ashutosh · online','Ashutosh · last seen 8:15 pm','Ashutosh is typing...','😴 (kuch nahi ho raha)'];
+function startPatience(){
+  if(pDone||pInt)return;
+  pStart=Date.now();
+  pInt=setInterval(()=>{
+    const s=Math.floor((Date.now()-pStart)/1000);
+    waitClock.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+    if(s%3===0){
+      const t=teases[Math.floor(Math.random()*teases.length)];
+      waitStatus.textContent=t;
+      waitStatus.classList.toggle('on',t.includes('typing'));
+      if(t.includes('typing'))tone(700,.05,'sine',.03);
     }
-  }
+  },1000);
+}
+function giveUp(){
+  clearInterval(pInt);pInt=null;pDone=true;
+  const s=Math.max(1,Math.floor((Date.now()-pStart)/1000));
+  const mult=Math.round(52860/s);
+  document.getElementById('yourWait').textContent=s+'s';
+  document.getElementById('multiplier').innerHTML=
+    `Tumne <span class="gold">${mult.toLocaleString('en-IN')}x</span> zyada wait kiya tha. 😶`;
+  waitStatus.textContent='...aur main tab bhi so raha tha.';
+  waitStatus.classList.remove('on');
+  giveUpBtn.style.display='none';
+  waitResult.style.display='block';
+  buzz();buzzPhone([60,40,60]);
+}
 
-  // music
-  const song=document.getElementById('song');
-  const musicBtn=document.getElementById('musicBtn');
-  let userPaused=false;
-  song.volume=0.3;
-  function tryPlay(){
-    if(userPaused)return;
-    song.play().then(()=>{
-      musicBtn.textContent='🎶';musicBtn.classList.add('playing');
-      unlockEvents.forEach(ev=>document.removeEventListener(ev,tryPlay));
-    }).catch(()=>{});
-  }
-  const unlockEvents=['pointerdown','click','touchstart','keydown','scroll','mousemove'];
-  unlockEvents.forEach(ev=>document.addEventListener(ev,tryPlay,{passive:true}));
-  tryPlay();
-  window.addEventListener('load',tryPlay);
-  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay();});
-  function toggleMusic(){
-    if(song.paused){song.play().catch(()=>{});userPaused=false;musicBtn.textContent='🎶';musicBtn.classList.add('playing');}
-    else{song.pause();userPaused=true;musicBtn.textContent='🔇';musicBtn.classList.remove('playing');}
-  }
+/* ---------- SCENE 3: wake tapper ---------- */
+const lines=['💤 zzz... (tap karo)','😪 "hmm... 5 minute aur..."','😑 "kaun hai yaar... sir dard..."',
+  '😬 "Nandu? ...nahi, sapna hoga"','😵 "phone kaha hai... sona hai..."','🫨 "ruko... 4 baje ka message?!"',
+  '😳 "OH NO. 14 GHANTE?!"','🫠 "main gaya. poora gaya."','🙇‍♂️ "NANDU SORRY! MAIN UTH GAYA!"'];
+const faces=['😴','😪','😑','😬','😵','🫨','😳','🫠','🙇‍♂️'];
+let taps=0;const need=lines.length-1;
+const sleeper=document.getElementById('sleeper'),snore=document.getElementById('snore'),
+      meterFill=document.getElementById('meterFill'),wakeNext=document.getElementById('wakeNext');
+function poke(){
+  if(taps>=need){confetti();return;}
+  taps++;alarm();buzzPhone(40);
+  sleeper.textContent=faces[taps];snore.textContent=lines[taps];
+  meterFill.style.width=(taps/need*100)+'%';
+  sleeper.classList.remove('hit');void sleeper.offsetWidth;sleeper.classList.add('hit');
+  if(taps>=need){wakeNext.style.display='inline-block';confetti();buzzPhone([100,60,100,60,200]);}
+}
 
-  // keyboard + swipe
-  document.addEventListener('keydown',e=>{
-    if(e.key==='ArrowRight')next();
-    if(e.key==='ArrowLeft')prev();
-    if(e.key==='Escape')lightbox.classList.remove('show');
-  });
-  let x0=null;
-  document.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
-  document.addEventListener('touchend',e=>{
-    if(x0===null)return;
-    const dx=e.changedTouches[0].clientX-x0;
-    if(dx<-50)next();else if(dx>50)prev();
-    x0=null;
-  });
+/* ---------- SCENE 4: excuse machine ---------- */
+const excuses=['🤕 "Sar dard tha"','📵 "Network chala gaya"','🔇 "Phone silent tha"','🔋 "Battery dead thi"',
+  '👻 "Bhoot ne phone chhupa diya"','🏥 "Main coma me tha"','🐒 "Bandar le gaya phone"','😐 "Personal kaam tha"'];
+const verdicts=['...bakwaas. 4:18 am pe tum jaag rahi thi. 🚫','...aur bhi bakwaas. 🚫','...ye toh sabse ghatiya hai. 🚫'];
+let pulls=0,spinning=false;
+const reel=document.getElementById('reel'),reelText=document.getElementById('reelText'),
+      lever=document.getElementById('lever'),tries=document.getElementById('tries'),
+      excuseEnd=document.getElementById('excuseEnd');
+function pull(){
+  if(spinning||pulls>=3)return;
+  spinning=true;lever.disabled=true;reel.classList.add('spin');
+  let n=0;
+  const spin=setInterval(()=>{
+    reelText.textContent=excuses[Math.floor(Math.random()*excuses.length)];
+    tone(400+Math.random()*300,.03,'square',.02);
+    if(++n>18){
+      clearInterval(spin);reel.classList.remove('spin');
+      pulls++;spinning=false;
+      const e=excuses[Math.floor(Math.random()*excuses.length)];
+      reelText.textContent=e+' '+verdicts[pulls-1];
+      buzz();buzzPhone(80);
+      tries.textContent='Bahane bache: '+(3-pulls);
+      if(pulls>=3){
+        setTimeout(()=>{
+          reel.classList.add('jam');
+          reelText.innerHTML='💥 MACHINE JAM<br><span style="font-size:13px;">bahane khatam ho gaye</span>';
+          tries.textContent='Bahane bache: 0 — aur honi bhi nahi chahiye';
+          buzz();buzzPhone([150,80,150]);
+          excuseEnd.style.display='block';
+        },1100);
+      }else lever.disabled=false;
+    }
+  },70);
+}
 
-  // ripple + pop
-  document.addEventListener('click',e=>{
-    const b=e.target.closest('.btn');
-    if(!b)return;
+/* ---------- SCENE 9: manao meter ---------- */
+const begs=[
+  {f:'🙏',t:'"Nandu... ek baar sun lo?"'},
+  {f:'🙇‍♂️',t:'"Sorry. Sach me. Dono haath jod raha hoon."'},
+  {f:'🧎',t:'"Ghutne pe aa gaya hoon. Dikh raha hai?"'},
+  {f:'😖',t:'"Bolo jo bolna hai — haramkhoor, nikamma, sab sun lunga."'},
+  {f:'😭',t:'"Chai chhod dunga. ...theek hai, chai nahi. Par baaki sab."'},
+  {f:'💻',t:'"Poori raat jaag ke ye bana raha hoon. Neend ka badla neend se. 😵"'},
+  {f:'🥹',t:'"Bas 4 baje dobara akele mat likhna \'ho kha\'. Wo mujhse nahi dekha jaayega."'}
+];
+let begN=0;
+const beggar=document.getElementById('beggar'),begLine=document.getElementById('begLine'),
+      begFill=document.getElementById('begFill'),begBtn=document.getElementById('begBtn'),
+      begEnd=document.getElementById('begEnd');
+function beg(){
+  begN++;
+  if(begN>=begs.length){
+    begBtn.style.display='none';begEnd.style.display='block';confetti();buzzPhone([80,50,80]);
+    beggar.textContent='🥺';begLine.textContent='"Ho gaya. Ab kuch nahi bacha bolne ko."';
+    begFill.style.width='100%';return;
+  }
+  const b=begs[begN];
+  beggar.textContent=b.f;begLine.textContent=b.t;
+  begFill.style.width=(begN/(begs.length-1)*100)+'%';
+  beggar.classList.remove('hit');void beggar.offsetWidth;beggar.classList.add('hit');
+  tone(300+begN*40,.09,'sine',.05);buzzPhone(40);
+}
+
+/* ---------- SCENE 8: his turn ---------- */
+let myOn=false;
+function startMyTimer(){
+  if(myOn)return;myOn=true;
+  const el=document.getElementById('myTimer');
+  let left=14*3600+41*60;
+  setInterval(()=>{
+    left--;
+    el.textContent=String(Math.floor(left/3600)).padStart(2,'0')+':'+
+      String(Math.floor(left%3600/60)).padStart(2,'0')+':'+String(left%60).padStart(2,'0');
+  },1000);
+}
+
+/* ---------- win ---------- */
+function win(){go(10);document.body.classList.add('dawn');confetti();
+  tone(660,.15,'sine',.1);setTimeout(()=>tone(880,.15,'sine',.1),150);setTimeout(()=>tone(1100,.35,'sine',.1),300);
+  buzzPhone([80,50,80,50,200]);}
+
+/* ---------- music ---------- */
+const song=document.getElementById('song'),musicBtn=document.getElementById('musicBtn');
+let userPaused=false;song.volume=0.22;
+function tryPlay(){
+  if(userPaused)return;
+  song.play().then(()=>{musicBtn.textContent='🎶';musicBtn.classList.add('playing');
+    unlockEvents.forEach(ev=>document.removeEventListener(ev,tryPlay));}).catch(()=>{});
+}
+const unlockEvents=['pointerdown','click','touchstart','keydown','scroll'];
+unlockEvents.forEach(ev=>document.addEventListener(ev,tryPlay,{passive:true}));
+tryPlay();window.addEventListener('load',tryPlay);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay();});
+function toggleMusic(){
+  if(song.paused){song.play().catch(()=>{});userPaused=false;musicBtn.textContent='🎶';musicBtn.classList.add('playing');}
+  else{song.pause();userPaused=true;musicBtn.textContent='🔇';musicBtn.classList.remove('playing');}
+}
+
+/* ---------- nav ---------- */
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight')next();
+  if(e.key==='ArrowLeft')prev();
+  if(e.key==='Escape')lightbox.classList.remove('show');
+});
+let x0=null;
+document.addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  if(x0===null)return;
+  const dx=e.changedTouches[0].clientX-x0;
+  if(dx<-50)next();else if(dx>50)prev();
+  x0=null;
+});
+
+/* ---------- fx ---------- */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('.btn');
+  if(b){
     const r=document.createElement('span');r.className='ripple';
-    const rect=b.getBoundingClientRect();
-    const size=Math.max(rect.width,rect.height);
+    const rect=b.getBoundingClientRect(),size=Math.max(rect.width,rect.height);
     r.style.width=r.style.height=size+'px';
     r.style.left=(e.clientX-rect.left-size/2)+'px';
     r.style.top=(e.clientY-rect.top-size/2)+'px';
     b.appendChild(r);setTimeout(()=>r.remove(),600);
     b.classList.remove('pop');void b.offsetWidth;b.classList.add('pop');
-  });
-
-  // tap burst
-  document.addEventListener('click',e=>{
-    if(e.target.closest('.sleeper'))return;
-    const set=['💤','❤️','🥺','💗','🙏'];
-    for(let i=0;i<4;i++){
-      const b=document.createElement('div');b.className='burst';
-      b.textContent=set[Math.floor(Math.random()*set.length)];
-      b.style.left=e.clientX+'px';b.style.top=e.clientY+'px';
-      b.style.setProperty('--dx',(Math.random()*160-80)+'px');
-      b.style.setProperty('--dy',(-40-Math.random()*120)+'px');
-      document.body.appendChild(b);setTimeout(()=>b.remove(),900);
-    }
-  });
-
-  function confetti(){
-    const set=['🎉','❤️','💖','🌅','😘','✨','💕'];
-    for(let i=0;i<70;i++){
-      const c=document.createElement('div');c.className='confetti';
-      c.textContent=set[Math.floor(Math.random()*set.length)];
-      c.style.left=Math.random()*100+'vw';
-      c.style.animationDuration=(2.5+Math.random()*2.5)+'s';
-      c.style.animationDelay=(Math.random()*.6)+'s';
-      c.style.fontSize=(16+Math.random()*18)+'px';
-      document.body.appendChild(c);setTimeout(()=>c.remove(),5500);
-    }
   }
-
-  // lightbox
-  const lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
-  function openLightbox(e,src,rot){e.stopPropagation();lbImg.src=src;lbImg.classList.toggle('rot',!!rot);lightbox.classList.add('show');}
-  function closeLightbox(e){e.stopPropagation();lightbox.classList.remove('show');}
-
-  function showResult(type){
-    if(type==='yes'){go(15);document.body.classList.add('dawn');confetti();}
+  if(e.target.closest('.sleeper')||e.target.closest('.phone'))return;
+  const set=['💤','❤️','🥺','💗','🙏'];
+  for(let i=0;i<4;i++){
+    const d=document.createElement('div');d.className='burst';
+    d.textContent=set[Math.floor(Math.random()*set.length)];
+    d.style.left=e.clientX+'px';d.style.top=e.clientY+'px';
+    d.style.setProperty('--dx',(Math.random()*160-80)+'px');
+    d.style.setProperty('--dy',(-40-Math.random()*120)+'px');
+    document.body.appendChild(d);setTimeout(()=>d.remove(),900);
   }
+});
+function confetti(){
+  const set=['🎉','❤️','💖','🌅','😘','✨','💕'];
+  for(let i=0;i<60;i++){
+    const c=document.createElement('div');c.className='confetti';
+    c.textContent=set[Math.floor(Math.random()*set.length)];
+    c.style.left=Math.random()*100+'vw';
+    c.style.animationDuration=(2.5+Math.random()*2.5)+'s';
+    c.style.animationDelay=(Math.random()*.6)+'s';
+    c.style.fontSize=(16+Math.random()*18)+'px';
+    document.body.appendChild(c);setTimeout(()=>c.remove(),5500);
+  }
+}
+const lightbox=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+function openLightbox(e,src,rot){e.stopPropagation();lbImg.src=src;lbImg.classList.toggle('rot',!!rot);lightbox.classList.add('show');}
+function closeLightbox(e){e.stopPropagation();lightbox.classList.remove('show');}
 
-  render();
+render();
 </script>
 </body>
 </html>

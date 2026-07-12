@@ -169,13 +169,15 @@
     transform:scale(0);animation:ripple .6s ease-out;pointer-events:none;}
   @keyframes ripple{to{transform:scale(4);opacity:0}}
 
-  .slide-img{max-width:min(56vw,170px);max-height:min(30vh,220px);border-radius:14px;
-    box-shadow:0 12px 30px rgba(0,0,0,.45);display:block;transform:rotate(-90deg);margin:32px auto;cursor:zoom-in;}
+  .slide-img{max-width:min(72vw,230px);max-height:min(34vh,260px);border-radius:14px;
+    box-shadow:0 12px 30px rgba(0,0,0,.45);display:block;margin:14px auto;cursor:zoom-in;
+    transition:transform .2s ease;}
+  .slide-img:hover{transform:scale(1.03);}
   .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;padding:20px;}
   .lightbox.show{display:flex;animation:fade .3s ease;}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   .lightbox img{max-width:92vw;max-height:92vh;border-radius:8px;}
-  .lightbox img.rot{max-width:92vh;max-height:92vw;transform:rotate(-90deg);}
+  .lightbox img.rot{max-width:92vh;max-height:92vw;transform:rotate(90deg);}
   .lightbox .close{position:fixed;top:16px;right:16px;z-index:101;width:50px;height:50px;border-radius:50%;
     border:none;background:#fff;color:#000;font-size:26px;cursor:pointer;}
 
@@ -215,7 +217,7 @@
 <div class="progress" id="progress"></div>
 <div class="zzz" id="zzz"></div>
 
-<audio id="song" src="song.mp3" loop preload="auto" autoplay></audio>
+<audio id="song" src="Bairan.mp3" loop preload="auto" autoplay></audio>
 <a class="home-btn" href="index.html" title="Back">🏠</a>
 <button id="musicBtn" class="music-btn playing" onclick="toggleMusic()" title="Music">🎶</button>
 
@@ -374,7 +376,7 @@
       <div id="begEnd" style="display:none;">
         <p class="big-line">Bas smile karo. Aur kuch nahi. 💨</p>
         <p class="quiet">Na maafi, na jawab, kuch nahi. Bas wo waali smile — wahi mera refund hai.</p>
-        <img src="smile.jpeg" alt="smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',true)" onerror="this.style.display='none';" />
+        <img src="smile.jpeg" alt="smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',false)" onerror="this.style.display='none';" />
         <button class="btn" onclick="win()">Le lo maafi 😊💗</button>
         <button class="btn ghost" onclick="go(7)">Phir se poochho 🔁</button>
       </div>

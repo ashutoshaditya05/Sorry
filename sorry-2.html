@@ -170,12 +170,12 @@
   @keyframes ripple{to{transform:scale(4);opacity:0}}
 
   .slide-img{max-width:min(56vw,170px);max-height:min(30vh,220px);border-radius:14px;
-    box-shadow:0 12px 30px rgba(0,0,0,.45);display:block;transform:rotate(90deg);margin:32px auto;cursor:zoom-in;}
+    box-shadow:0 12px 30px rgba(0,0,0,.45);display:block;transform:rotate(-90deg);margin:32px auto;cursor:zoom-in;}
   .lightbox{position:fixed;inset:0;z-index:100;background:rgba(0,0,0,.93);display:none;align-items:center;justify-content:center;padding:20px;}
   .lightbox.show{display:flex;animation:fade .3s ease;}
   @keyframes fade{from{opacity:0}to{opacity:1}}
   .lightbox img{max-width:92vw;max-height:92vh;border-radius:8px;}
-  .lightbox img.rot{max-width:92vh;max-height:92vw;transform:rotate(90deg);}
+  .lightbox img.rot{max-width:92vh;max-height:92vw;transform:rotate(-90deg);}
   .lightbox .close{position:fixed;top:16px;right:16px;z-index:101;width:50px;height:50px;border-radius:50%;
     border:none;background:#fff;color:#000;font-size:26px;cursor:pointer;}
 
@@ -317,8 +317,9 @@
         <div><span>Status</span><span>Nahi aaya 🚫</span></div>
         <div><span>Jo maine tumse liya</span><span>14h 41m</span></div>
         <div><span>Uska refund possible?</span><span>Nahi ❌</span></div>
+        <div><span>Jurmana (mai bharunga)</span><span>🥟 vada pav · 🍝 pasta</span></div>
       </div>
-      <p class="quiet">₹670 shayad aa bhi jaaye. Wo 14 ghante kabhi wapas nahi aayenge. Isliye refund nahi — <b>maafi</b> maang raha hoon.</p>
+      <p class="quiet">₹670 shayad aa bhi jaaye. Wo 14 ghante kabhi wapas nahi aayenge. Isliye refund nahi — <b>maafi</b> maang raha hoon. (Jurmana alag se. 😌)</p>
       <button class="btn" onclick="next()">Ek asli baat 🫶</button>
     </div>
   </section>
@@ -371,8 +372,8 @@
       <p class="snore" id="begLine">"Nandu... ek baar sun lo?"</p>
       <button class="btn" id="begBtn" onclick="beg()">Aur manao 😤</button>
       <div id="begEnd" style="display:none;">
-        <p class="big-line">Bas ek smile de do. 💨</p>
-        <p class="quiet">Wahi mera ₹670 ka refund hai.</p>
+        <p class="big-line">Bas smile karo. Aur kuch nahi. 💨</p>
+        <p class="quiet">Na maafi, na jawab, kuch nahi. Bas wo waali smile — wahi mera refund hai.</p>
         <img src="smile.jpeg" alt="smile" class="slide-img" onclick="openLightbox(event,'smile.jpeg',true)" onerror="this.style.display='none';" />
         <button class="btn" onclick="win()">Le lo maafi 😊💗</button>
         <button class="btn ghost" onclick="go(7)">Phir se poochho 🔁</button>
@@ -387,7 +388,13 @@
       <h2>Ye waali "good morning" time pe hai. 💗</h2>
       <p>Us din waali 14 ghante late thi. Thank you, Nandu — tum bahut asaani se maaf kar deti ho, aur main us cheez ko halke me nahi lunga.</p>
       <p class="sub">Ab batao — <i>tum</i> kaha ho? Is baar main yahi hoon. Jaag raha hoon. 📞</p>
-      <p class="quiet">Aur kabhi fursat me poochhna — ki ek late reply ke liye koi poori website kyun bana deta hai. 😌 Filhaal... bas sorry. (Refund aaye toh batana, momos pakke 🥟)</p>
+      <div class="receipt" style="margin-top:14px;">
+        <div><span>Sazaa status</span><span>Pending ⏳</span></div>
+        <div><span>Us shop ka vada pav</span><span>Due 🥟</span></div>
+        <div><span>Thauncle ka white sauce pasta</span><span>Due 🍝</span></div>
+        <div><span>Bhugtane ke liye chahiye</span><span>Tum + ek din 📅</span></div>
+      </div>
+      <p class="quiet">Sazaa bhugtani hai toh milna toh padega hi. 😌 Din batao. Aur kabhi fursat me ye bhi poochhna — ki ek late reply ke liye koi poori website kyun bana deta hai.</p>
       <button class="btn ghost" onclick="location.href='index.html'">🏠 Wapas</button>
     </div>
   </section>
@@ -603,9 +610,10 @@ const begs=[
   {f:'🙇‍♂️',t:'"Sorry. Sach me. Dono haath jod raha hoon."'},
   {f:'🧎',t:'"Ghutne pe aa gaya hoon. Dikh raha hai?"'},
   {f:'😖',t:'"Bolo jo bolna hai — haramkhoor, nikamma, sab sun lunga."'},
-  {f:'😭',t:'"Chai chhod dunga. ...theek hai, chai nahi. Par baaki sab."'},
+  {f:'🥟',t:'"Us shop ka vada pav — jitna kha sako. Ginti nahi karunga."'},
+  {f:'🍝',t:'"Aur Thauncle ke yaha ka white sauce pasta. Wo meri sazaa hai — khushi se bhugtunga."'},
   {f:'💻',t:'"Poori raat jaag ke ye bana raha hoon. Neend ka badla neend se. 😵"'},
-  {f:'🥹',t:'"Bas 4 baje dobara akele mat likhna \'ho kha\'. Wo mujhse nahi dekha jaayega."'}
+  {f:'🥴',t:'"Bas. Isse neeche gir nahi sakta. Ab tumhari marzi."'}
 ];
 let begN=0;
 const beggar=document.getElementById('beggar'),begLine=document.getElementById('begLine'),
@@ -615,7 +623,7 @@ function beg(){
   begN++;
   if(begN>=begs.length){
     begBtn.style.display='none';begEnd.style.display='block';confetti();buzzPhone([80,50,80]);
-    beggar.textContent='🥺';begLine.textContent='"Ho gaya. Ab kuch nahi bacha bolne ko."';
+    beggar.textContent='🥺';begLine.textContent='"Ab main chup. Tum bolo."';
     begFill.style.width='100%';return;
   }
   const b=begs[begN];

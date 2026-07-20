@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Nandu — a letter I owe you 🤍</title>
+<title>Nandani — a letter I owe you 🤍</title>
 <style>
   :root{
     --bg1:#0a0a1e;--bg2:#141433;--bg3:#1c1140;
@@ -111,6 +111,26 @@
     animation:flick 3s ease-in-out infinite;}
   @keyframes flick{0%,100%{transform:rotate(-2deg) scale(1)}50%{transform:rotate(2deg) scale(1.05)}}
 
+  /* feel-good interactive bits */
+  .btn3{font-family:inherit;font-size:clamp(15px,4vw,18px);font-weight:400;padding:13px 28px;border-radius:40px;
+    cursor:pointer;border:none;color:#fff;background:linear-gradient(135deg,var(--rose),var(--rose-d));
+    box-shadow:0 8px 22px rgba(224,99,125,.4);transition:transform .15s;margin-top:6px;-webkit-appearance:none;
+    touch-action:manipulation;user-select:none;}
+  .btn3:active{transform:scale(.93);}
+  .reasonCard{min-height:96px;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:16px;
+    padding:20px;margin:12px 0 14px;font-size:clamp(17px,4.6vw,23px);line-height:1.45;color:var(--ink);}
+  .reasonCard.pop{animation:rpop .45s ease;}
+  @keyframes rpop{0%{opacity:.15;transform:translateY(12px) scale(.95)}100%{opacity:1;transform:none}}
+  .reasonCount{margin-top:8px;}
+  .smileWrap{max-height:0;overflow:hidden;opacity:0;transition:max-height .9s ease,opacity .9s ease;}
+  .smileWrap.show{max-height:700px;opacity:1;margin-top:14px;}
+  .smilePic{max-width:min(64vw,230px);border-radius:18px;box-shadow:0 16px 44px rgba(0,0,0,.5);
+    margin:0 auto 16px;display:block;}
+  .lovecount{font-size:clamp(50px,16vw,96px);font-weight:400;color:var(--gold);line-height:1;
+    margin:8px 0;font-family:Georgia,serif;letter-spacing:1px;}
+  .lovemsg{min-height:24px;margin-top:10px;}
+
   /* final choices */
   .choices{display:flex;flex-direction:column;gap:14px;width:100%;max-width:400px;margin-top:8px;}
   .choice{font-family:inherit;font-size:clamp(15px,4vw,18px);padding:16px 20px;border-radius:16px;
@@ -148,7 +168,7 @@
   <section>
     <div class="reveal show">
       <span class="heartbeat">🤍</span>
-      <h1>Nandu.</h1>
+      <h1>Nandani.</h1>
       <p class="soft">Ye koi website nahi hai. Na koi mazak, na koi bahana.</p>
       <p>Bas ek letter — jo mujhe bahut pehle likh dena chahiye tha.</p>
       <div class="rule"></div>
@@ -261,7 +281,7 @@
       <p>Haan, tum abhi gusse me ho. Tumhara bharosa toota hai — main jaanta hoon, aur wo tumhara poora haq hai.</p>
       <p>Par tum ye bhi jaanti ho — main tumse kitna <span class="rose">attached</span> hoon.</p>
       <p>Ye ek-tarfa hai meri taraf se. Pichhle <span class="gold">Dedh mahine</span> se hum dono roz, lagataar baat karte aaye hain. Sirf tum nahi — main bhi utna hi juda hoon. Shayad tumse thoda zyada hi.</p>
-      <p class="huge">Mujhe tum pasand ho, Nandu. Ye baat gusse se nahi badalti.</p>
+      <p class="huge">Mujhe tum pasand ho, Nandani. Ye baat gusse se nahi badalti.</p>
       <p>Isliye tumhe door jaate dekhna dukh deta hai. Par main samajhta hoon kyun — aur main zid nahi karunga. Bas ruka rahunga.</p>
       <p class="soft">Kyunki jo hamare beech hai, wo itna asli hai ki uske liye intezaar karna banta hai. 🤍</p>
     </div>
@@ -303,7 +323,7 @@
       <span class="heartbeat">🤍</span>
       <p class="huge">Tum mujhe kabhi pareshan nahi karti.</p>
       <p>Bilkul bhi nahi. Ulta — mujhe tumse pareshan hona <span class="rose">pasand</span> hai. Har roz. Hamesha.</p>
-      <p>Teri wo chhoti chhoti baatein, tere messages, teri calls — wahi toh mere din ka sabse acha hissa hai. Kabhi ye mat sochna ki tum mujhe tang kar rahi ho.</p>
+      <p>Tumhari wo chhoti chhoti baatein, tumhare messages, tumhari calls — wahi toh mere din ka sabse acha hissa hai. Kabhi ye mat sochna ki tum mujhe tang kar rahi ho.</p>
       <p class="soft">Jis din tum pareshan karna band kar dogi, us din mujhe sabse zyada takleef hogi. Toh karti raho — roz. 🤍</p>
     </div>
   </section>
@@ -317,7 +337,45 @@
       <p>Main wo sirf isliye karta hoon kyunki usme <span class="rose">meri apni khushi</span> hai. Tumhe khush dekhna — bas wahi meri wajah hai. Uska koi mol nahi, koi udhaari nahi.</p>
       <p>Tum foodie ho? Toh mujhe tumhe wahi khilana pasand hai jo tumhara dil chahe — jitni baar chaho, khushi se. 🍽️</p>
       <p>Tumhe makeup, sajna-sanwarna pasand hai? Toh mujhe tumhara wo shauk poora karna, tumhara khayal rakhna pasand hai. 💄</p>
-      <p class="soft">Tum par kabhi koi ehsaan nahi, Nandu. Sirf pyaar — apni marzi se, apni khushi se. 🤍</p>
+      <p class="soft">Tum par kabhi koi ehsaan nahi, Nandani. Sirf pyaar — apni marzi se, apni khushi se. 🤍</p>
+    </div>
+  </section>
+
+  <!-- FEELGOOD 1 — REASONS -->
+  <section>
+    <div class="reveal">
+      <p class="spaced">Ab thodi si khushi</p>
+      <h2>Tumhe pasand karne ki wajahein? Ginti nahi.</h2>
+      <p class="soft">Ek dabao. Har baar ek nayi. 🤍</p>
+      <div class="reasonCard" id="reasonCard">Ready? Neeche dabao 👇</div>
+      <button class="btn3" id="reasonBtn" onclick="nextReason()">Ek wajah dikhao 🤍</button>
+      <p class="reasonCount soft" id="reasonCount"></p>
+    </div>
+  </section>
+
+  <!-- FEELGOOD 2 — HER SMILE -->
+  <section>
+    <div class="reveal">
+      <p class="spaced">Duniya ki sabse pyaari cheez</p>
+      <p>Dabao... aur dekho maine kya sambhaal ke rakha hai.</p>
+      <button class="btn3" id="smileBtn" onclick="showSmile()">Kholo 🎁</button>
+      <div class="smileWrap" id="smileWrap">
+        <img src="smile.jpeg" alt="" class="smilePic" onerror="this.style.display='none';" />
+        <p class="huge">Yeh. Bas yeh. 🤍</p>
+        <p>Tumhari smile. Meri favourite jagah — is poori duniya me.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEELGOOD 3 — HOW MUCH -->
+  <section>
+    <div class="reveal">
+      <p class="spaced">Ek cheez, hasi ke saath</p>
+      <h2>Kitna maanta hoon tumhe?</h2>
+      <p class="soft">Button dabaye rakho... ginti shuru karo. 🤍</p>
+      <div class="lovecount" id="loveCount">0</div>
+      <button class="btn3" id="loveBtn" onpointerdown="startLove(event)" onpointerup="stopLove()" onpointerleave="stopLove()">Dabaye rakho 💗</button>
+      <p class="lovemsg soft" id="loveMsg"></p>
     </div>
   </section>
 
@@ -386,7 +444,7 @@
     if(blocked){
       ph.classList.add('blocked');ph.classList.remove('rejoined');
       btn.classList.remove('danger');
-      st.textContent='Blocked by Nandu';
+      st.textContent='Blocked by Nandani';
       btn.textContent='Unblock 🤍';
       note.innerHTML='Ho gaya. Ab tum jaanti ho wo kaisa lagta hai. Isi ka naam hai <b>Haramkhoor</b> — wahi jisne tumhe block kiya tha. Jitni der chaho, block rakho. Main phir bhi yahin hoon, is button ke peeche, tumhara intezaar karta hua.';
     }else{
@@ -442,12 +500,12 @@
       html=`<span class="heartbeat">🤍</span>
         <p class="spaced">Aur is baar sach me</p>
         <h2>Raat dhal gayi. Subah ho gayi. 🌅</h2>
-        <p>Shukriya, Nandu. Sach me. Tumne mujhe wo diya jiska main haqdaar bhi nahi tha — ek aur mauka.</p>
+        <p>Shukriya, Nandani. Sach me. Tumne mujhe wo diya jiska main haqdaar bhi nahi tha — ek aur mauka.</p>
         <p>Main tumse vaada karta hoon — is baar main tumhara bharosa apne kaam se kamaunga. Ye maine <span class="rose">bola</span> nahi hai — ye main <span class="rose">karke</span> dikhaunga, din-ba-din, bina ruke.</p>
         <p>Ab tum meri taraf se kabhi na koi doori mehsoos karogi, na koi "seen", na koi block. Sirf ek insaan — jo har din tumhare liye behtar banega.</p>
         <p class="huge">Main tumhe kabhi khud se door nahi hone dunga. 🤍</p>
         <p class="soft">Ab bas apna khayal rakhna. Aur haan — main kahin nahi jaa raha. Kabhi nahi.</p>
-        <p class="soft" style="margin-top:16px;">— tera bandar 🐵</p>`;
+        <p class="soft" style="margin-top:16px;">— tumhara bandar 🐵</p>`;
     }else{
       html=`<span class="candle">🕯️</span>
         <p class="spaced">Aur ye sabse zaroori</p>
@@ -457,11 +515,64 @@
         <p>Tum apna time lo. Jitna bhi. Aur jis din tum tayaar hogi — chahe kal ho, chahe mahine baad — main <span class="rose">usi jagah</span> khada milunga. Wahin. Tumhara intezaar karta hua.</p>
         <p class="huge">Kyunki tum us intezaar ke laayak ho. 🤍</p>
         <p class="soft">Tab tak — please apni sehat ka khayal rakhna. Wo sabse pehle. Baaki sab ruk sakta hai.</p>
-        <p class="soft" style="margin-top:16px;">— tera bandar, jo yahin ruka hai 🐵</p>`;
+        <p class="soft" style="margin-top:16px;">— tumhara bandar, jo yahin ruka hai 🐵</p>`;
     }
     box.style.display='block';
     box.classList.add('show');
     box.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  /* feel-good: reasons collector */
+  const reasons=[
+    'Tumhari wo smile — jab tum haasti ho, mera poora din ban jaata hai. 😊',
+    'Jaise tum daant ke bhi, sambhaal leti ho mujhe.',
+    'Tumhari baaton me kho jaana — ghanton, bina thake.',
+    'Tumhara gussa bhi — jo sirf isliye aata hai kyunki tumhe farak padta hai.',
+    'Jaise tum mujhe behtar banne pe majboor kar deti ho — UPSC, job, sab.',
+    'Tumhari himmat — jo mujhe meri apni himmat yaad dila deti hai.',
+    'Tumhari wo aankhein — jinme main bina bole apni har baat keh deta hoon.',
+    'Bas... tum, tum ho. Isse badi koi wajah nahi. 🤍'
+  ];
+  let rIdx=-1;
+  function nextReason(){
+    rIdx++;
+    const card=document.getElementById('reasonCard'),cnt=document.getElementById('reasonCount'),
+          btn=document.getElementById('reasonBtn');
+    card.textContent=reasons[rIdx%reasons.length];
+    card.classList.remove('pop');void card.offsetWidth;card.classList.add('pop');
+    cnt.textContent='Wajah #'+(rIdx+1)+'  ·  aur bahut saari baaki hain';
+    if(rIdx===0)btn.textContent='Ek aur 🤍';
+  }
+
+  /* feel-good: smile spotlight */
+  function showSmile(){
+    document.getElementById('smileWrap').classList.add('show');
+    document.getElementById('smileBtn').style.display='none';
+    startBloom();
+  }
+
+  /* feel-good: love counter to infinity */
+  let loveN=0,loveHold=false,loveDone=false,loveRAF=null;
+  function startLove(e){
+    if(e&&e.preventDefault)e.preventDefault();
+    if(loveDone)return;
+    loveHold=true;
+    const el=document.getElementById('loveCount'),msg=document.getElementById('loveMsg');
+    (function tick(){
+      if(!loveHold)return;
+      loveN+=Math.ceil((loveN+1)*0.09)+5;
+      if(loveN>=1000000){
+        el.textContent='∞';loveDone=true;loveHold=false;
+        msg.innerHTML='Ginti khatam ho gayi. <span class="rose">Pyaar nahi.</span> 🤍';
+        startBloom();return;
+      }
+      el.textContent=loveN.toLocaleString('en-IN');
+      loveRAF=requestAnimationFrame(tick);
+    })();
+  }
+  function stopLove(){
+    loveHold=false;if(loveRAF)cancelAnimationFrame(loveRAF);
+    if(!loveDone&&loveN>0)document.getElementById('loveMsg').textContent='Aur dabao... abhi toh shuru kiya hai. 😌';
   }
 
   /* gentle petals when forgiven */

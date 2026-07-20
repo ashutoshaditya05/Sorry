@@ -50,6 +50,17 @@
   .tag{font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
     color:var(--pink);background:#ffeaf2;padding:5px 11px;border-radius:20px;align-self:flex-start;}
   .opt.new .tag{color:#fff;background:linear-gradient(135deg,var(--pink),var(--pink-dark));}
+
+  /* the serious one */
+  .opt.deep{flex-basis:100%;max-width:100%;
+    background:linear-gradient(150deg,#1c1140,#2b1447);color:#eae6f2;
+    box-shadow:0 24px 60px rgba(28,17,64,.5);}
+  .opt.deep .tag{color:#1c1140;background:#ffcf8f;}
+  .opt.deep h2{color:#fff;}
+  .opt.deep p{color:#cfc8e6;}
+  .opt.deep .crime{color:#ff8fa3;border-top-color:rgba(255,255,255,.15);}
+  .opt.deep .go{color:#ffcf8f;}
+  .opt.deep:hover{border-color:#ff8fa3;box-shadow:0 30px 70px rgba(28,17,64,.65);}
   .opt .ic{font-size:38px;line-height:1;}
   .opt h2{font-size:clamp(19px,4.6vw,24px);color:var(--pink-dark);line-height:1.25;}
   .opt p{font-size:15px;opacity:.85;}
@@ -70,11 +81,20 @@
 <header>
   <span class="emoji-big">🙇‍♂️</span>
   <h1>Dear Nandu,</h1>
-  <p>Ek aur galti. Ek aur website. 🙈</p>
-  <p class="sub">Purani waali ab bhi zinda hai — kaunsi maafi sunni hai, khud chuno. 👇</p>
+  <p>Kuch maafi hasi ke saath. Ek dil se.</p>
+  <p class="sub">Jo padhna ho, khud chuno. 👇</p>
 </header>
 
 <div class="cards">
+
+  <a class="opt deep" href="sorry-3.html">
+    <span class="tag">Please isse pehle padho 🤍</span>
+    <span class="ic">🤍</span>
+    <h2>Ek letter — jo mujhe pehle likhna chahiye tha</h2>
+    <p>Is baar koi mazak nahi. Maine tumhe block kiya, rulaaya, aur tumhari tabiyat tak bigad gayi. Iske liye koi bahana nahi hai — sirf sach, aur ek vaada jo main kabhi nahi todunga.</p>
+    <span class="crime">Trust toota. Main jaanta hoon. Ise dobara kamana meri zimmedari hai — waqt aur kaam se.</span>
+    <span class="go">Letter kholo</span>
+  </a>
 
   <a class="opt new" href="sorry-2.html">
     <span class="tag">New · zero promises</span>
@@ -96,7 +116,7 @@
 
 </div>
 
-<footer>Dono padho. Dono sach hain. Dono ke liye sorry hoon. 🥹💗</footer>
+<footer>Sab sach hain. Har ek ke liye sorry hoon. Sabse zyada — pehle waale ke liye. 🤍</footer>
 
 <script>
   const emojis=['❤️','💕','💖','💗','💤'];

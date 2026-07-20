@@ -66,16 +66,18 @@
     padding:24px 18px 22px;box-shadow:0 24px 60px rgba(0,0,0,.55);margin:6px auto 4px;}
   .pav{width:66px;height:66px;border-radius:50%;margin:6px auto 10px;
     background:linear-gradient(135deg,var(--rose),var(--rose-d));display:flex;align-items:center;
-    justify-content:center;font-size:30px;filter:grayscale(1);opacity:.6;transition:all 1s ease;}
+    justify-content:center;font-size:30px;filter:none;opacity:1;transition:all 1s ease;}
   .pname{font-size:17px;color:#fff;margin-bottom:2px;}
   .pstat{font-size:12.5px;color:#ff7a7a;font-style:italic;margin-bottom:16px;transition:color 1s;}
   .unblock{background:linear-gradient(135deg,var(--rose),var(--rose-d));color:#fff;border:none;
     font-family:inherit;font-size:16px;padding:12px 26px;border-radius:40px;cursor:pointer;
     box-shadow:0 8px 22px rgba(224,99,125,.4);transition:transform .15s;}
   .unblock:active{transform:scale(.93);}
-  .phone.done .pav{filter:none;opacity:1;}
-  .phone.done .pstat{color:var(--gold);}
-  .phone.done .unblock{background:rgba(255,255,255,.1);color:var(--soft);pointer-events:none;box-shadow:none;}
+  .unblock.danger{background:linear-gradient(135deg,#ff6a80,var(--red));box-shadow:0 8px 22px rgba(255,84,112,.4);}
+  .phone.blocked .pav{filter:grayscale(1);opacity:.4;}
+  .phone.blocked .pstat{color:#ff7a7a;}
+  .phone.rejoined .pav{filter:none;opacity:1;}
+  .phone.rejoined .pstat{color:var(--gold);}
   .unblock-note{min-height:24px;margin-top:16px;}
 
   /* press-and-hold heart */
@@ -177,17 +179,29 @@
     </div>
   </section>
 
-  <!-- 4 — THE UNBLOCK (interactive) -->
+  <!-- 3.5 — FULL BLAME, NO DEFLECTION -->
   <section>
     <div class="reveal">
-      <p class="spaced">Jo maine band kiya tha</p>
+      <p class="spaced">Aur ye bilkul saaf kar doon</p>
+      <p>Is block ka poora ilzaam <span class="rose">sirf mera</span> hai. Na Tiwari ka, na kisi aur ka.</p>
+      <p>Haan — kisi ne kuch kaha, aur main influence ho gaya. Par ye unki galti nahi thi — ye <span class="rose">meri</span> kamzori thi. Main itna kaccha kaise pad gaya, kisi ki baat pe?</p>
+      <p class="huge">Bahar walon ko hamare baare me kya pata?</p>
+      <p>Jo hamare beech hai, wo sirf hum dono jaante hain. Aur maine kisi bahar wale ki baat ko hamare beech aane diya — yahi meri sabse badi bhool thi.</p>
+      <p class="soft">Ye galti main dobara kabhi nahi karunga. Kisi ki baat, kisi ka gussa, koi tanz — ab kuch bhi hum dono ke beech nahi aayega. Kabhi nahi. 🤍</p>
+    </div>
+  </section>
+
+  <!-- 4 — GIVE HER THE POWER (block me) -->
+  <section>
+    <div class="reveal">
+      <p class="spaced">Ab ye button tumhara hai</p>
       <div class="phone" id="phone">
-        <div class="pav">🤍</div>
-        <div class="pname">Nandu</div>
-        <div class="pstat" id="pstat">You blocked this contact</div>
-        <button class="unblock" id="unblockBtn" onclick="unblock()">Unblock</button>
+        <div class="pav">🐵</div>
+        <div class="pname">Haramkhoor</div>
+        <div class="pstat" id="pstat">Online · tumhare liye hamesha</div>
+        <button class="unblock danger" id="blockBtn" onclick="toggleBlock()">Block me 🚫</button>
       </div>
-      <p class="unblock-note soft" id="ubNote">Ek button ne block kar diya tha. Kaash dil bhi itna aasaan hota.</p>
+      <p class="unblock-note soft" id="ubNote">Jisne tumhe block kiya tha, aaj wahi button tumhare haath me hai. Jitna gussa hai — mujhe block kar do. Ye haq tumhara hai.</p>
     </div>
   </section>
 
@@ -364,11 +378,24 @@
   });
 
   /* unblock */
-  function unblock(){
-    const ph=document.getElementById('phone');
-    ph.classList.add('done');
-    document.getElementById('pstat').textContent='Unblocked · wapas jud gaye 🤍';
-    document.getElementById('ubNote').innerHTML='Tumne abhi ise unblock kiya. Kaash jo dard maine diya, use bhi main utni aasaani se mita paata. Us par mujhe mehnat karni hai — aur karunga.';
+  let blocked=false;
+  function toggleBlock(){
+    const ph=document.getElementById('phone'),btn=document.getElementById('blockBtn'),
+          st=document.getElementById('pstat'),note=document.getElementById('ubNote');
+    blocked=!blocked;
+    if(blocked){
+      ph.classList.add('blocked');ph.classList.remove('rejoined');
+      btn.classList.remove('danger');
+      st.textContent='Blocked by Nandu';
+      btn.textContent='Unblock 🤍';
+      note.innerHTML='Ho gaya. Ab tum jaanti ho wo kaisa lagta hai. Isi ka naam hai <b>Haramkhoor</b> — wahi jisne tumhe block kiya tha. Jitni der chaho, block rakho. Main phir bhi yahin hoon, is button ke peeche, tumhara intezaar karta hua.';
+    }else{
+      ph.classList.remove('blocked');ph.classList.add('rejoined');
+      btn.classList.add('danger');
+      st.textContent='Wapas jud gaye 🤍';
+      btn.textContent='Block me 🚫';
+      note.innerHTML='Aur agar tumne khud mujhe wapas jod liya... toh shukriya. Main wahi bandar hoon — bas ab thoda sudhra hua. Is baar main ye button kabhi nahi dabaunga. 🐵';
+    }
   }
 
   /* press & hold to mend */

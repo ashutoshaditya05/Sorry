@@ -491,6 +491,7 @@
 
   /* final response — every choice answered with grace */
   function respond(type){
+    if(type==='time'){ location.href='sorry-3-time.html'; return; }
     document.getElementById('askBlock').style.display='none';
     const box=document.getElementById('response');
     let html='';
@@ -500,22 +501,13 @@
       html=`<span class="heartbeat">🤍</span>
         <p class="spaced">Aur is baar sach me</p>
         <h2>Raat dhal gayi. Subah ho gayi. 🌅</h2>
-        <p>Shukriya, Nandani. Sach me. Tumne mujhe wo diya jiska main haqdaar bhi nahi tha — ek aur mauka.</p>
-        <p>Main tumse vaada karta hoon — is baar main tumhara bharosa apne kaam se kamaunga. Ye maine <span class="rose">bola</span> nahi hai — ye main <span class="rose">karke</span> dikhaunga, din-ba-din, bina ruke.</p>
+        <p>Dhanyawaad aapka, Nandani. 🤍 Tumne mujhe wo diya jiska main haqdaar bhi nahi tha — ek aur mauka.</p>
+        <p class="huge">Main ye trust ab phir dobara kabhi nahi todunga.</p>
+        <p>Ye maine <span class="rose">bola</span> nahi hai — ye main <span class="rose">karke</span> dikhaunga, din-ba-din, bina ruke.</p>
         <p>Ab tum meri taraf se kabhi na koi doori mehsoos karogi, na koi "seen", na koi block. Sirf ek insaan — jo har din tumhare liye behtar banega.</p>
         <p class="huge">Main tumhe kabhi khud se door nahi hone dunga. 🤍</p>
         <p class="soft">Ab bas apna khayal rakhna. Aur haan — main kahin nahi jaa raha. Kabhi nahi.</p>
         <p class="soft" style="margin-top:16px;">— tumhara bandar 🐵</p>`;
-    }else{
-      html=`<span class="candle">🕯️</span>
-        <p class="spaced">Aur ye sabse zaroori</p>
-        <h2>Tumhe jitna time lage, lo. 🤍</h2>
-        <p>Main tumhe bilkul pareshan nahi karunga. Na baar-baar message, na koi zid, na koi shikayat. Bas... main yahin, chup-chaap, tumhare liye ruka rahunga.</p>
-        <p>Trust ek button se wapas nahi aata — mujhe pata hai. Wo waqt maangta hai, aur mere kaam maangta hai. Dono main dunga — bina jaldi ke.</p>
-        <p>Tum apna time lo. Jitna bhi. Aur jis din tum tayaar hogi — chahe kal ho, chahe mahine baad — main <span class="rose">usi jagah</span> khada milunga. Wahin. Tumhara intezaar karta hua.</p>
-        <p class="huge">Kyunki tum us intezaar ke laayak ho. 🤍</p>
-        <p class="soft">Tab tak — please apni sehat ka khayal rakhna. Wo sabse pehle. Baaki sab ruk sakta hai.</p>
-        <p class="soft" style="margin-top:16px;">— tumhara bandar, jo yahin ruka hai 🐵</p>`;
     }
     box.style.display='block';
     box.classList.add('show');

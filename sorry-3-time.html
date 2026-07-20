@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Theek hai. Main wait kar raha hoon 🐵</title>
+<style>
+  :root{
+    --bg1:#141433;--bg2:#1c1140;--bg3:#2b1447;
+    --ink:#eae6f2;--soft:#b8b2cf;--rose:#ff8fa3;--rose-d:#e0637d;--gold:#ffcf8f;
+    --line:rgba(255,255,255,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+  html,body{min-height:100%;}
+  body{
+    font-family:Georgia,'Times New Roman',serif;color:var(--ink);
+    background:linear-gradient(160deg,var(--bg1),var(--bg2),var(--bg3));
+    background-size:200% 200%;animation:bg 24s ease infinite;
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:40px 22px 60px;line-height:1.7;overflow-x:hidden;
+  }
+  @keyframes bg{0%{background-position:0% 0%}50%{background-position:100% 100%}100%{background-position:0% 0%}}
+
+  .wrap{max-width:540px;width:100%;animation:in .8s ease both;}
+  @keyframes in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  .spaced{letter-spacing:3px;text-transform:uppercase;font-size:12px;color:var(--soft);margin-bottom:14px;}
+  h1{font-size:clamp(26px,7vw,44px);font-weight:400;line-height:1.15;margin-bottom:14px;}
+  p{font-size:clamp(15px,3.8vw,19px);margin-bottom:14px;}
+  .soft{color:var(--soft);font-style:italic;font-size:clamp(13px,3.2vw,16px);}
+  .rose{color:var(--rose);} .gold{color:var(--gold);}
+
+  .mon{font-size:clamp(90px,30vw,150px);line-height:1;display:inline-block;cursor:pointer;user-select:none;
+    transition:transform .12s;}
+  .mon:active{transform:scale(.9) rotate(-6deg);}
+  .mon.wob{animation:wob .5s ease;}
+  @keyframes wob{0%,100%{transform:none}25%{transform:rotate(-9deg) scale(1.05)}75%{transform:rotate(9deg) scale(1.05)}}
+
+  .status{min-height:26px;font-weight:400;color:var(--gold);font-size:clamp(16px,4.4vw,22px);margin:6px 0 4px;}
+
+  .clockbox{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:16px;
+    padding:14px 16px;margin:16px 0;}
+  .clocklabel{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--soft);}
+  .clock{font-size:clamp(24px,7vw,40px);color:var(--rose);font-weight:400;letter-spacing:1px;margin-top:4px;}
+
+  .btn{font-family:inherit;font-size:clamp(15px,4vw,18px);font-weight:400;padding:14px 28px;border-radius:40px;
+    cursor:pointer;border:none;color:#fff;background:linear-gradient(135deg,var(--rose),var(--rose-d));
+    box-shadow:0 8px 22px rgba(224,99,125,.4);transition:transform .15s;margin:8px 5px 0;
+    -webkit-appearance:none;touch-action:manipulation;}
+  .btn:active{transform:scale(.93);}
+  .btn.ghost{background:rgba(255,255,255,.07);border:1px solid var(--line);color:var(--ink);box-shadow:none;}
+
+  .real{border-top:1px solid var(--line);margin-top:26px;padding-top:22px;}
+  .real .huge{font-size:clamp(20px,5.4vw,28px);color:var(--ink);margin-bottom:12px;}
+
+  .back{margin-top:22px;}
+  .back a{color:var(--soft);text-decoration:none;font-size:14px;border-bottom:1px solid var(--line);padding-bottom:2px;}
+
+  .fly{position:fixed;z-index:40;pointer-events:none;font-size:26px;animation:fly 1s ease-out forwards;}
+  @keyframes fly{0%{transform:translate(0,0) scale(.6);opacity:1}100%{transform:translate(var(--dx),var(--dy)) scale(1.3);opacity:0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="spaced">Faisla: mujhe thoda time chahiye</p>
+
+  <span class="mon" id="mon" onclick="poke()">🐵</span>
+  <div class="status" id="status">Theek hai. Main baith gaya. 🪑</div>
+
+  <p>Tumne kaha "thoda time chahiye" — aur main ekdum <b>chill</b> hoon. Dekho, main baith bhi gaya. 😌</p>
+
+  <div class="clockbox">
+    <div class="clocklabel">Main kab se wait kar raha hoon</div>
+    <div class="clock" id="clock">0 second</div>
+  </div>
+
+  <p class="soft" id="quip">(spoiler: main uthne waala nahi hoon)</p>
+
+  <button class="btn" onclick="poke()">Aur intezaar karwao 🐵</button>
+  <button class="btn ghost" onclick="location.href='sorry-3.html'">Wapas letter pe ↩</button>
+
+  <div class="real">
+    <p class="huge">Par mazak alag, Nandani —</p>
+    <p>Sach me, jitna time chahiye lo. Main tumhe pareshan nahi karunga. Na baar-baar message, na koi zid.</p>
+    <p>Main sach me yahin rahunga. <span class="rose">Chahe kal, chahe mahine baad.</span> Bas apni sehat ka khayal rakhna — wo sabse pehle. 🤍</p>
+    <p class="soft">— tumhara bandar, jo (sach me) yahin ruka hai 🐵</p>
+    <div class="back"><a href="index.html">🏠 Home</a></div>
+  </div>
+</div>
+
+<script>
+  // funny escalating waiting states
+  const faces =['🐵','🙈','🙉','🐒','🧔','👴','🦴','👻','🌱','🐵'];
+  const status=[
+    'Theek hai. Main baith gaya. 🪑',
+    'Aankhein band karke intezaar... 🙈',
+    'Ab kaan bhi band. Sirf tumhara "ready" sunuga. 🙉',
+    'Thodi der tehel liya. Wapas aa gaya. 🐒',
+    'Daadhi aa gayi intezaar me. Koi baat nahi. 🧔',
+    'Buddha ho gaya yahin baithe baithe. Still here. 👴',
+    'Sirf haddiyan bachi... par jagah nahi chhodi. 🦴',
+    'Bhoot ban gaya. Ab toh kahin nahi jaa sakta. 👻',
+    'Agla janam mila — phir yahin ugg gaya. 🌱',
+    'Dobara bandar. Reset. Aur main phir se wait pe. 🐵'
+  ];
+  const quips=[
+    '(spoiler: main uthne waala nahi hoon)',
+    '(chai bhi yahin manga li)',
+    '(Netflix khol lu? ...nahi, wo toh tumne hata diya 😐)',
+    '(ek imli goli chal jaayegi is beech)',
+    '(padoswale poochhne lage main yahan kyun baitha hoon)',
+    '(main theek hoon, tension mat lo, bas... yahin hoon)',
+    '(archaeology waale mujhe dhoondh rahe hain)',
+    '(ye toh ab lifestyle ban gaya hai)',
+    '(punarjanm bhi le liya sirf wait karne ke liye)',
+    '(dekha? kahin nahi gaya. bola tha na.)'
+  ];
+  let step=0, waited=0;
+  const mon=document.getElementById('mon'),st=document.getElementById('status'),
+        quip=document.getElementById('quip'),clock=document.getElementById('clock');
+
+  // absurd growing "time waited"
+  const units=['second','minute','ghanta','din','hafta','mahina','saal','yug','janam','anant kaal'];
+  function poke(){
+    step=(step+1)%faces.length;
+    waited++;
+    mon.textContent=faces[step];
+    mon.classList.remove('wob');void mon.offsetWidth;mon.classList.add('wob');
+    st.textContent=status[step];
+    quip.textContent=quips[step];
+    const u=units[Math.min(step,units.length-1)];
+    const n=[1,7,3,40,2,6,101,3,7,'∞'][step];
+    clock.textContent=(n==='∞'?'∞':n+' '+u)+(step>=5?' 😵':'');
+    burst();
+  }
+  // live-ish ticking on the first state
+  setInterval(()=>{ if(step===0){waited++;clock.textContent=waited+' second';} },1000);
+
+  function burst(){
+    const set=['🐵','🍌','⏳','🤍','😌','🪑'];
+    for(let i=0;i<5;i++){
+      const d=document.createElement('div');d.className='fly';
+      d.textContent=set[Math.floor(Math.random()*set.length)];
+      const r=mon.getBoundingClientRect();
+      d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+r.height/3)+'px';
+      d.style.setProperty('--dx',(Math.random()*180-90)+'px');
+      d.style.setProperty('--dy',(-50-Math.random()*120)+'px');
+      document.body.appendChild(d);setTimeout(()=>d.remove(),1000);
+    }
+  }
+</script>
+</body>
+</html>

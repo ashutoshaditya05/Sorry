@@ -326,7 +326,6 @@
       <div class="choices">
         <button class="choice warm" onclick="respond('forgive')">Maine tumhe maaf kiya 🤍</button>
         <button class="choice" onclick="respond('time')">Mujhe abhi thoda time chahiye<small>...aur ye bilkul theek hai</small></button>
-        <button class="choice" onclick="respond('space')">Main abhi taiyaar nahi hoon<small>...main samajh sakta hoon</small></button>
       </div>
     </div>
 
@@ -414,25 +413,24 @@
       document.body.classList.add('dawn');
       startBloom();
       html=`<span class="heartbeat">🤍</span>
-        <h2>Raat dhal gayi. Subah ho gayi.</h2>
-        <p>Shukriya, Nandu. Tumne mujhe wo diya jiska main haqdaar bhi nahi tha — ek aur mauka.</p>
-        <p>Main ise zaaya nahi karunga. Ye maine <span class="rose">bola</span> nahi — ye main <span class="rose">karke</span> dikhaunga, din-ba-din.</p>
-        <p class="soft">Ab bas apna khayal rakhna. Aur haan — main kahin nahi jaa raha. 🤍</p>
+        <p class="spaced">Aur is baar sach me</p>
+        <h2>Raat dhal gayi. Subah ho gayi. 🌅</h2>
+        <p>Shukriya, Nandu. Sach me. Tumne mujhe wo diya jiska main haqdaar bhi nahi tha — ek aur mauka.</p>
+        <p>Main tumse vaada karta hoon — is baar main tumhara bharosa apne kaam se kamaunga. Ye maine <span class="rose">bola</span> nahi hai — ye main <span class="rose">karke</span> dikhaunga, din-ba-din, bina ruke.</p>
+        <p>Ab tum meri taraf se kabhi na koi doori mehsoos karogi, na koi "seen", na koi block. Sirf ek insaan — jo har din tumhare liye behtar banega.</p>
+        <p class="huge">Main tumhe kabhi khud se door nahi hone dunga. 🤍</p>
+        <p class="soft">Ab bas apna khayal rakhna. Aur haan — main kahin nahi jaa raha. Kabhi nahi.</p>
         <p class="soft" style="margin-top:16px;">— tera bandar 🐵</p>`;
-    }else if(type==='time'){
-      html=`<span class="candle">🕯️</span>
-        <h2>Bilkul. Jitna time chahiye, lo.</h2>
-        <p>Main tumpe koi dabaav nahi daalunga. Trust ek button se wapas nahi aata — mujhe pata hai. Wo waqt aur mere kaam se aayega.</p>
-        <p>Main yahi hoon. Sabar ke saath. Jab tum tayaar hogi, main usi jagah khada milunga.</p>
-        <p class="soft">Tab tak — please apni sehat ka khayal rakhna. Wo sabse zaroori hai. 🤍</p>
-        <p class="soft" style="margin-top:16px;">— tera bandar, jo yahin ruka hai 🐵</p>`;
     }else{
       html=`<span class="candle">🕯️</span>
-        <h2>Main samajhta hoon.</h2>
-        <p>Ye tumhara poora haq hai. Maine jo kiya uske baad, tumhara abhi baat na karna bilkul sahi hai.</p>
-        <p>Main tumhe majboor nahi karunga. Bas itna jaan lo — mujhe <span class="rose">sach me</span>, dil se afsos hai. Aur wo kabhi nahi badlega.</p>
-        <p class="soft">Apna khayal rakhna, Nandu. Jaldi theek ho jao. Baaki sab ruk sakta hai. 🤍</p>
-        <p class="soft" style="margin-top:16px;">— tera bandar 🐵</p>`;
+        <p class="spaced">Aur ye sabse zaroori</p>
+        <h2>Tumhe jitna time lage, lo. 🤍</h2>
+        <p>Main tumhe bilkul pareshan nahi karunga. Na baar-baar message, na koi zid, na koi shikayat. Bas... main yahin, chup-chaap, tumhare liye ruka rahunga.</p>
+        <p>Trust ek button se wapas nahi aata — mujhe pata hai. Wo waqt maangta hai, aur mere kaam maangta hai. Dono main dunga — bina jaldi ke.</p>
+        <p>Tum apna time lo. Jitna bhi. Aur jis din tum tayaar hogi — chahe kal ho, chahe mahine baad — main <span class="rose">usi jagah</span> khada milunga. Wahin. Tumhara intezaar karta hua.</p>
+        <p class="huge">Kyunki tum us intezaar ke laayak ho. 🤍</p>
+        <p class="soft">Tab tak — please apni sehat ka khayal rakhna. Wo sabse pehle. Baaki sab ruk sakta hai.</p>
+        <p class="soft" style="margin-top:16px;">— tera bandar, jo yahin ruka hai 🐵</p>`;
     }
     box.style.display='block';
     box.classList.add('show');
